@@ -17,9 +17,6 @@ fetch("/main-nav.json")
     fetch("/sub-nav.json")
       .then((response) => response.json())
       .then((subNavData) => generateNavlinks(mainNavData, subNavData));
-  })
-  .catch((error) => {
-    console.log(console.log(error));
   });
 
 // Function to generate navigation links
@@ -89,9 +86,6 @@ function renderData() {
       generateCards(data);
       renderCorousal(data);
       renderCards(data);
-    })
-    .catch((error) => {
-      console.log(console.log(error));
     });
 }
 renderData();
