@@ -227,10 +227,11 @@ span {
 @media screen and (max-width: 450px) {
   #container {
     width: 100%;
-  }
-
-  nav ul {
-    flex-direction: row-reverse;
+    overflow: hidden;
   }
   
+
+  /* nav ul {
+    flex-direction: row-reverse;
+  } */
 }

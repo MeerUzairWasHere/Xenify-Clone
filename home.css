@@ -238,4 +238,8 @@ main {
   aside {
     width: 100%;
   }
+
+  .child-h1 {
+    font-size: 1.5rem;
+  }
 }
