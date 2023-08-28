@@ -1,0 +1,229 @@
+﻿/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap");
+
+/* Reset default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set general background color for the page */
+html {
+  background-color: #f6f6f6;
+}
+
+/* Main container styling */
+#container {
+  height: 90px;
+  width: 1070px;
+  margin-top: 30px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Styling for the main navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav ul {
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+  background-color: #fff;
+  display: flex;
+  gap: 20px; /* Use 'gap' instead of 'grid-gap' */
+  padding: 15px 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for navigation links */
+.nav a {
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  font-family: "Jost", sans-serif;
+  font-weight: 700; /* Use font-weight 700 for bold */
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Styling for list items in the navigation */
+.nav li {
+  list-style: none;
+  height: 100%;
+  display: flex;
+}
+
+/* Styling for navigation sub-menus */
+.nav .sub-nav {
+  position: absolute;
+  flex-direction: column;
+  height: auto;
+  display: none;
+  z-index: 1;
+  width: 135px;
+  top: 110px;
+}
+.mega-menu .sub-nav li a {
+  color: black;
+}
+.mega-menu .sub-nav li p:hover {
+  color: #ff580c;
+}
+/* Display sub-menu on hover */
+.nav-li:hover .sub-nav {
+  display: flex;
+}
+
+/* Change link color on hover */
+.nav-li a:hover {
+  color: #ff580c;
+}
+
+/* Styling for mega-menu */
+.mega-menu .sub-nav {
+  flex-direction: row;
+  width: auto;
+  align-items: baseline;
+  background-color: white;
+  margin-inline: -200px;
+}
+
+.mega-menu .sub-nav li a {
+  flex-direction: column;
+  width: 150px;
+  align-items: baseline;
+}
+
+/* Styling for navigation images */
+.nav-img {
+  border-radius: 5px;
+  object-fit: cover;
+  position: relative;
+}
+
+/* Styling for mega-menu navigation titles */
+.mega-menu .nav-title {
+  position: absolute;
+  color: white;
+  margin: 5px;
+  background-color: #ff580c;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: xx-small;
+}
+
+aside {
+  width: 450px;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.popular-posts {
+  background-color: white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+}
+.img-post {
+  position: relative;
+  padding: 15px;
+}
+.img-post-detail {
+  color: whitesmoke;
+  padding: 20px;
+  bottom: 10px;
+  position: absolute;
+  inset: 9 -12 15px 10px;
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.post-title {
+  background-color: #ff580c;
+  padding: 3px 4px;
+  text-transform: uppercase;
+  font-size: 8px;
+  height: 15px;
+}
+span {
+  font-family: "inter", sans-serif;
+}
+.post-description {
+  font-family: "Jost", sans-serif;
+}
+.post-author,
+.post-date {
+  color: #d5d5da;
+  font-weight: 500;
+  font-size: 12px;
+}
+.card-post-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.popular-post-text {
+  font-family: "jost", sans-serif;
+  display: block;
+  margin-inline: 15px;
+  margin-top: 15px;
+  
+}
+.card-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 15px 5px;
+}
+.flex {
+  display: flex;
+  gap: 10px;
+}
+.post-description a {
+  text-decoration: none;
+  color: black;
+}
+.img-post-detail .post-description a {
+  color: rgb(255, 255, 255);
+}
+
+.img-post-detail .post-description:hover,
+.post-description:hover {
+  color: #ff580c;
+  cursor: pointer;
+}
+.load-btn {
+  display: flex;
+  height: 32px;
+  font-size: 14px;
+  color: black;
+  align-items: center;
+  gap: 5px;
+
+  padding: 0 20px 0 25px;
+  border: 1px solid rgba(155, 155, 155, 0.15);
+  background: #ffffff;
+  transition: all 0s ease;
+}
+.load-btn:hover {
+  cursor: pointer;
+  background-color: #ff580c;
+  color: white;
+}
+.wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+

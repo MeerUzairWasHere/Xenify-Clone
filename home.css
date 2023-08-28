@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+.hero-section {
+  padding: 30px 86px;
+  background-color: #ff5b10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 9px;
+}
+.img-container {
+  width: 572px;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.4));
+}
+.img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+}
+.card {
+  padding: 24px 30px 36px;
+  display: flex;
+  border-radius: 10px;
+  font-family: cursive;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 350px;
+  text-align: center;
+  gap: 10px;
+}
+.title,
+.author {
+  color: #ff5b10;
+  font-weight: 600;
+
+}
+.description {
+  font-family: "jost";
+}
+.description a {
+  text-decoration: none;
+  color: black;
+}
+.description a:hover {
+  color: #ff5b10;
+}
+
+.hero-section-corousal {
+  padding: 20px 86px;
+  margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+}
+
+.img-card {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.4));
+  padding: 24px 30px 36px;
+  display: flex;
+  font-size: x-large;
+  position: absolute;
+  top: 400px;
+  left: 550px;
+  border-radius: 10px;
+  font-family: cursive;
+  flex-direction: column;
+  background-color: white;
+  gap: 10px;
+}
+.mega-menu li {
+  flex-direction: row;
+}
+
+.cards-section{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow-y: hidden;
+  height: 1800px;
+}
+
+.cards-section a{
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin-bottom: 20px;
+  position: relative;
+  width: 357px;
+  height: 431px;
+}
+
+.card-img{
+  width: 357px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.card-details{
+  flex-direction: column;
+    gap: 10px;
+    padding: 22px 25px;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+    margin: 0 17px;
+    position: absolute;
+    top: 230px;
+    height: 200px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+}
+
+.tag{
+  border-radius: 3px;
+  background: #ff5b10;
+  position: absolute;
+  margin: 10px;
+  top: 0;
+  color: white;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-family: "inter";
+  text-transform: uppercase;
+}
+
+.card-title{
+  font-family: "jost",sans-serif;
+
+}
+.card-title:hover{
+  color: #ff5b10;
+}
+.card-author-date,.card-description{
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #979797;
+}
+.cards-section .author {
+  font-weight: 600;
+}
+.card-description{
+  color:#626262;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+.imgg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+main{
+  display: flex;
+  padding: 30px 86px;
+  gap:20px;
+}
