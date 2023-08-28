@@ -175,7 +175,6 @@ span {
   display: block;
   margin-inline: 15px;
   margin-top: 15px;
-  
 }
 .card-posts {
   display: flex;
@@ -225,5 +224,13 @@ span {
   align-items: center;
 }
 
+@media screen and (max-width: 450px) {
+  #container {
+    width: 100%;
+  }
 
-
+  nav ul {
+    flex-direction: row-reverse;
+  }
+  
+}

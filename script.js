@@ -10,7 +10,7 @@ const miniPostLiked = document.getElementById("mini-post-liked");
 const loadMoreBtn = document.getElementById("loadMore");
 
 // Fetch main navigation data from a JSON file
-fetch("/main-nav.json")
+fetch("main-nav.json")
   .then((response) => response.json())
   .then((mainNavData) => {
     // Fetch sub-navigation data from a JSON file
@@ -78,7 +78,7 @@ function generateNavlinks(mainNavData, subNavData) {
 
 // Fetch card data from a JSON file
 function renderData() {
-  fetch("/cards.json")
+  fetch("cards.json")
     .then((res) => res.json())
     .then((data) => {
       // Call functions to render carousel and cards
@@ -90,7 +90,7 @@ function renderData() {
 }
 renderData();
 
-//setInterval(renderData, 60000);
+setInterval(renderData, 60000);
 
 // Function to render individual cards
 function renderCards(data) {
