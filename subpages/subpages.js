@@ -1,5 +1,6 @@
     const wrapper = document.getElementById("wrapper");
 
+    const currentPath = window.location.pathname;
     const pathParts = currentPath.split("/");
     // Get the last part, which is the filename
     const currentFilenameWithExtension = pathParts[pathParts.length - 1];
