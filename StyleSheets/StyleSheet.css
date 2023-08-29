@@ -227,6 +227,10 @@ span {
 nav > #mobile-nav {
   display: none;
 }
+a{
+  text-decoration: none;
+  color:black;
+}
 
 @media screen and (max-width: 450px) {
  #container{

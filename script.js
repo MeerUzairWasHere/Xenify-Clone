@@ -11,12 +11,13 @@ const loadMoreBtn = document.getElementById("loadMore");
 const burgerBtn = document.getElementById("burger-btn");
 const mobileNav = document.getElementById("mobile-nav");
 
+
 // Fetch main navigation data from a JSON file
-fetch("/main-nav.json")
+fetch("/Json/main-nav.json")
   .then((response) => response.json())
   .then((mainNavData) => {
     // Fetch sub-navigation data from a JSON file
-    fetch("/sub-nav.json")
+    fetch("/Json/sub-nav.json")
       .then((response) => response.json())
       .then((subNavData) => generateNavlinks(mainNavData, subNavData));
   });
@@ -80,7 +81,7 @@ function generateNavlinks(mainNavData, subNavData) {
 
 // Fetch card data from a JSON file
 function renderData() {
-  fetch("/cards.json")
+  fetch("/Json/cards.json")
     .then((res) => res.json())
     .then((data) => {
       // Call functions to render carousel and cards
@@ -100,15 +101,11 @@ function renderCards(data) {
 
   const cardHTML = data
     .map((card) => {
-      return `<div  ${`data-title="${card.title}"`} onclick="getTitle(event)"  class='card'>
+      return `<div class='card'>
                 <span class='title'>${card.title}</span>
-                <span class="description"><a href="#">${
-                  card.description
-                }</a></span>
+                <span class="description"><a href="${card.href}">${card.description}</a></span>
                 <div class="info card-author-date">
-                  by<span class="author"> ${
-                    card.author
-                  }</span> <span class="date">${card.date}</span>
+                  by<span class="author"> ${card.author}</span> <span class="date">${card.date}</span>
                 </div>
               </div>`;
     })
@@ -127,22 +124,16 @@ function renderCorousal(cardsData) {
 
   // Generate HTML for the carousel using a random card
   corousalHTML += `
-    <div class="img-container" ${`data-title="${cardsData[randomIndex].title}"`} onclick="getTitle(event)" >
+    <div class="img-container"   >
       <img src="${cardsData[randomIndex].imageUrl}" height="600" class="img">
     </div>
-    <div class="img-card" ${`data-title="${cardsData[randomIndex].title}"`} onclick="getTitle(event)" >
+    <div class="img-card" >
       <span class='title'>${cardsData[randomIndex].title}</span>
-      <span class="description"><a href="#">${
-        cardsData[randomIndex].description
-      }</a></span>
+      <span class="description"><a href="${cardsData[randomIndex].href}">${cardsData[randomIndex].description}</a></span>
       <div class="info card-author-date">
-        by<span class="author"> ${
-          cardsData[randomIndex].author
-        }</span> <span class="date">${cardsData[randomIndex].date}</span>
+        by<span class="author"> ${cardsData[randomIndex].author}</span> <span class="date">${cardsData[randomIndex].date}</span>
       </div>
-      <span class="sub-description card-description">${
-        cardsData[randomIndex].subDescription
-      }</span>
+      <span class="sub-description card-description">${cardsData[randomIndex].subDescription}</span>
     </div>`;
 
   // Populate the hero carousel with generated HTML
@@ -152,7 +143,9 @@ function renderCorousal(cardsData) {
 function generateCards(data) {
   const infoCardsHTML = data
     .map((card) => {
-      return ` <a href="#" ${`data-title="${card.title}"`} onclick="getTitle(event)" >
+      return ` <a href="${
+        card.href
+      }" ${`data-title="${card.title}"`} onclick="getTitle(event)" >
     <div class="card-img">
          <img src="${card.imageUrl}" class="imgg" alt="img">
     </div>
@@ -188,12 +181,10 @@ function generateSideNav(cardsData) {
   let likedCardPostsHTML = "";
 
   cardPostsHTML = `
-  <div ${`data-title="${
-    cardsData[randomIndex + 1].title
-  }"`} onclick="getTitle(event)" >
+  <a href="${cardsData[randomIndex + 1].href}">
   <img src="${
     cardsData[randomIndex + 1].imageUrl
-  }" class="img" style="border-radius:0;" height="200" alt=""   >
+  }" class="img" style="border-radius:0;" height="200" alt="img"   >
 
   <div class="img-post-detail">
   <span class="post-title">${cardsData[randomIndex + 1].title}</span>
@@ -205,12 +196,10 @@ function generateSideNav(cardsData) {
           }</strong></span>
           <span class="post-date"> - ${cardsData[randomIndex + 1].date}</span>
   </div>
-  </div>`;
+  </a>`;
 
   likedCardPostsHTML = `
-  <div ${`data-title="${
-    cardsData[randomIndex + 2].title
-  }"`} onclick="getTitle(event)" >
+  <a href="${cardsData[randomIndex + 2].href}" >
   <img src="${
     cardsData[randomIndex + 2].imageUrl
   }" class="img" style="border-radius:0;" height="200" alt=""  >
@@ -225,7 +214,7 @@ function generateSideNav(cardsData) {
             }</strong></span>
             <span class="post-date"> - ${cardsData[randomIndex + 2].date}</span>
     </div>
-    </div>`;
+    </a>`;
 
   imgPost.innerHTML = cardPostsHTML;
 
@@ -237,37 +226,33 @@ function generateSideNav(cardsData) {
   for (let i = 0; i < 12; i++) {
     if (i % 2 == 0) {
       miniCards += `
-      <div class="flex" ${`data-title="${cardsData[i].title}"`} onclick="getTitle(event)" >
+      <a href="${cardsData[i].href}">
+      <div class="flex"  >
       <div class="mini-img">
-      <img src="${
-        cardsData[i].imageUrl
-      }"style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
+      <img src="${cardsData[i].imageUrl}"style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
       </div>
       
     <div class="card-post-detail">
     <span class="post-description">${cardsData[i].description}</span>
-    <span class="post-author" style="color: #979797;"> - ${
-      cardsData[i].author
-    }</span>
+    <span class="post-author" style="color: #979797;"> - ${cardsData[i].author}</span>
     </div>
     </div>
+    </a>
 `;
     } else {
       likedMiniCards += `
-      <div class="flex" ${`data-title="${cardsData[i].title}"`} onclick="getTitle(event)" >
+      <a href="${cardsData[i].href}">
+      <div class="flex"  >
       <div class="mini-img">
-      <img src="${
-        cardsData[i].imageUrl
-      }"  style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
+      <img src="${cardsData[i].imageUrl}"  style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
       </div>
       
       <div class="card-post-detail">
       <span class="post-description">${cardsData[i].description}</span>
-      <span class="post-author" style="color: #979797;"> - ${
-        cardsData[i].author
-      }</span>
+      <span class="post-author" style="color: #979797;"> - ${cardsData[i].author}</span>
     </div>
     </div>
+    </a>
 `;
     }
   }
@@ -276,53 +261,7 @@ function generateSideNav(cardsData) {
   miniPostLiked.innerHTML = likedMiniCards;
 }
 
-const wrapper = document.getElementById("wrapper");
 
-function getTitle(event) {
-  heroCorousal.style.display = "none";
-  heroDiv.style.display = "none";
-
-  event.preventDefault(); // Prevents the link from navigating
-
-  let CurrentTitle = event.currentTarget.getAttribute("data-title"); // Find the closest li element
-
-  fetch("/cards.json")
-    .then((res) => res.json())
-    .then((data) => {
-      renderChild(data);
-    });
-
-  function renderChild(data) {
-    let currentChild = data.filter((obj) => obj.title == CurrentTitle);
-
-    console.log(CurrentTitle);
-    console.log(currentChild);
-
-    let bodyHTML = currentChild.map((card) => {
-      return `  <div id="child-body" class="child-body">
-      <div class="child-content">
-      <h1 class="description child-h1">${card.description}</h1>
-      <div class="info card-author-date ">
-      
-          </div>
-          <p class="info">
-              by<span class="author "> ${card.author}</span> <span class="date">- ${card.date}</span>
-          </p>
-          </div>
-
-      <div class="img-container img">
-          <img src="${card.imageUrl}" alt="img" class="img">
-      </div>
-      <p class="card-description child-description">${card.subDescription}</p>
-    <p class="card-description child-description" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit distinctio totam enim et dolores consequuntur in eveniet optio quam voluptatum deleniti aut, laudantium, libero, ducimus minus cumque excepturi. Quo commodi ex vero, error consequuntur, culpa similique possimus libero dolor, laboriosam atque officiis eligendi. Quos fuga doloribus quam nam totam quod porro quasi? Ab aliquam placeat cumque quia sapiente sed quam pariatur ipsa enim necessitatibus deleniti optio voluptatibus dignissimos, soluta dolore harum eos eaque quae architecto fugiat? Voluptatibus omnis at sint laudantium tempore facilis consectetur sapiente ab nobis iste doloribus iure cupiditate magnam temporibus porro nesciunt, maiores dicta deleniti vitae libero aperiam culpa assumenda quo. Laudantium illum quasi saepe officia veritatis numquam autem aliquid praesentium dolorum et! Eaque sequi iste perferendis adipisci unde consequatur voluptates, excepturi ex expedita magnam quia libero suscipit, mollitia aut! Ut eius modi quam assumenda hic enim quasi commodi. Voluptatibus officiis laborum autem libero cumque suscipit quidem cum reprehenderit iusto, labore expedita doloribus odio ut numquam modi, voluptas, voluptatem deserunt repudiandae reiciendis id illum soluta. Fugit, earum itaque obcaecati a vel nam enim esse iste distinctio quia similique incidunt aliquid facilis. Dolorem labore hic delectus? Molestiae corrupti labore sapiente culpa voluptatibus beatae reiciendis ipsam dicta hic ipsum.</p>
-
-    </div>
-`;
-    });
-
-    wrapper.innerHTML = bodyHTML;
-  }
-}
 
 burgerBtn.addEventListener("click", () => {
   container.classList.toggle("active");
