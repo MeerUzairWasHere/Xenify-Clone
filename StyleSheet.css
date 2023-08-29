@@ -224,14 +224,32 @@ span {
   align-items: center;
 }
 
-@media screen and (max-width: 450px) {
-  #container {
-    width: 100%;
-    overflow: hidden;
-  }
-  
+nav > #mobile-nav {
+  display: none;
+}
 
-  /* nav ul {
-    flex-direction: row-reverse;
+@media screen and (max-width: 450px) {
+ #container{
+  display: none;
+ }
+
+  /* .active {
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    height: 100%;
+    flex-direction: column;
+    margin: 0;
+    top: 120px;
+    align-items: flex-start;
+    transition: ease-in-out 0.5s;
   } */
+
+  nav > #mobile-nav {
+    display: flex;
+    width: 100%;
+    margin: 30px 20px 0;
+    height: 90px;
+    justify-content: space-between;
+  }
 }

@@ -8,6 +8,8 @@ const miniPost = document.getElementById("mini-post");
 const imgPostLiked = document.getElementById("img-post-liked");
 const miniPostLiked = document.getElementById("mini-post-liked");
 const loadMoreBtn = document.getElementById("loadMore");
+const burgerBtn = document.getElementById("burger-btn");
+const mobileNav = document.getElementById("mobile-nav");
 
 // Fetch main navigation data from a JSON file
 fetch("/main-nav.json")
@@ -194,7 +196,7 @@ function generateSideNav(cardsData) {
   }" class="img" style="border-radius:0;" height="200" alt=""   >
 
   <div class="img-post-detail">
-          <span class="post-title">${cardsData[randomIndex + 1].title}</span>
+  <span class="post-title">${cardsData[randomIndex + 1].title}</span>
           <span class="post-description"> ${
             cardsData[randomIndex + 1].description
           }</span>
@@ -241,12 +243,12 @@ function generateSideNav(cardsData) {
         cardsData[i].imageUrl
       }"style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
       </div>
-
+      
     <div class="card-post-detail">
-      <span class="post-description">${cardsData[i].description}</span>
-      <span class="post-author" style="color: #979797;"> - ${
-        cardsData[i].author
-      }</span>
+    <span class="post-description">${cardsData[i].description}</span>
+    <span class="post-author" style="color: #979797;"> - ${
+      cardsData[i].author
+    }</span>
     </div>
     </div>
 `;
@@ -258,8 +260,8 @@ function generateSideNav(cardsData) {
         cardsData[i].imageUrl
       }"  style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
       </div>
-
-    <div class="card-post-detail">
+      
+      <div class="card-post-detail">
       <span class="post-description">${cardsData[i].description}</span>
       <span class="post-author" style="color: #979797;"> - ${
         cardsData[i].author
@@ -299,14 +301,14 @@ function getTitle(event) {
     let bodyHTML = currentChild.map((card) => {
       return `  <div id="child-body" class="child-body">
       <div class="child-content">
-          <h1 class="description child-h1">${card.description}</h1>
-          <div class="info card-author-date ">
-              
+      <h1 class="description child-h1">${card.description}</h1>
+      <div class="info card-author-date ">
+      
           </div>
           <p class="info">
               by<span class="author "> ${card.author}</span> <span class="date">- ${card.date}</span>
           </p>
-      </div>
+          </div>
 
       <div class="img-container img">
           <img src="${card.imageUrl}" alt="img" class="img">
@@ -314,10 +316,14 @@ function getTitle(event) {
       <p class="card-description child-description">${card.subDescription}</p>
     <p class="card-description child-description" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit distinctio totam enim et dolores consequuntur in eveniet optio quam voluptatum deleniti aut, laudantium, libero, ducimus minus cumque excepturi. Quo commodi ex vero, error consequuntur, culpa similique possimus libero dolor, laboriosam atque officiis eligendi. Quos fuga doloribus quam nam totam quod porro quasi? Ab aliquam placeat cumque quia sapiente sed quam pariatur ipsa enim necessitatibus deleniti optio voluptatibus dignissimos, soluta dolore harum eos eaque quae architecto fugiat? Voluptatibus omnis at sint laudantium tempore facilis consectetur sapiente ab nobis iste doloribus iure cupiditate magnam temporibus porro nesciunt, maiores dicta deleniti vitae libero aperiam culpa assumenda quo. Laudantium illum quasi saepe officia veritatis numquam autem aliquid praesentium dolorum et! Eaque sequi iste perferendis adipisci unde consequatur voluptates, excepturi ex expedita magnam quia libero suscipit, mollitia aut! Ut eius modi quam assumenda hic enim quasi commodi. Voluptatibus officiis laborum autem libero cumque suscipit quidem cum reprehenderit iusto, labore expedita doloribus odio ut numquam modi, voluptas, voluptatem deserunt repudiandae reiciendis id illum soluta. Fugit, earum itaque obcaecati a vel nam enim esse iste distinctio quia similique incidunt aliquid facilis. Dolorem labore hic delectus? Molestiae corrupti labore sapiente culpa voluptatibus beatae reiciendis ipsam dicta hic ipsum.</p>
 
-  </div>
+    </div>
 `;
     });
 
     wrapper.innerHTML = bodyHTML;
   }
 }
+
+burgerBtn.addEventListener("click", () => {
+  container.classList.toggle("active");
+});
