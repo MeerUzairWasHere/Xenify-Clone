@@ -10,7 +10,30 @@ const miniPostLiked = document.getElementById("mini-post-liked");
 const loadMoreBtn = document.getElementById("loadMore");
 const burgerBtn = document.getElementById("burger-btn");
 const mobileNav = document.getElementById("mobile-nav");
+const mobileSubNav = document.getElementById("mobile-subnav");
 
+const workSubnav = document.getElementById("our-work-subnav");
+const serviceSubnav = document.getElementById("our-service-subnav");
+
+const ourServiceUls = document.getElementById("our-service-uls");
+const ourWorkUls = document.getElementById("our-work-uls");
+
+const closeBtn = document.getElementById("close-btn");
+
+burgerBtn.addEventListener("click", () => {
+  mobileSubNav.style.left = "0";
+});
+
+closeBtn.addEventListener("click", () => {
+  mobileSubNav.style.left = "-100%";
+});
+
+workSubnav.addEventListener("click", () => {
+  ourWorkUls.classList.toggle("is-active");
+});
+serviceSubnav.addEventListener("click", () => {
+  ourServiceUls.classList.toggle("is-active");
+});
 
 // Fetch main navigation data from a JSON file
 fetch("/Json/main-nav.json")
@@ -262,7 +285,3 @@ function generateSideNav(cardsData) {
 }
 
 
-
-burgerBtn.addEventListener("click", () => {
-  container.classList.toggle("active");
-});
