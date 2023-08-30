@@ -11,14 +11,16 @@ const loadMoreBtn = document.getElementById("loadMore");
 const burgerBtn = document.getElementById("burger-btn");
 const mobileNav = document.getElementById("mobile-nav");
 const mobileSubNav = document.getElementById("mobile-subnav");
-
 const workSubnav = document.getElementById("our-work-subnav");
 const serviceSubnav = document.getElementById("our-service-subnav");
-
 const ourServiceUls = document.getElementById("our-service-uls");
 const ourWorkUls = document.getElementById("our-work-uls");
-
 const closeBtn = document.getElementById("close-btn");
+const catagories = document.getElementById("catagories");
+
+fetch("/Json/catagories.json")
+  .then((res) => res.json())
+  .then((data) => generateCat(data));
 
 burgerBtn.addEventListener("click", () => {
   mobileSubNav.style.left = "0";
@@ -34,6 +36,15 @@ workSubnav.addEventListener("click", () => {
 serviceSubnav.addEventListener("click", () => {
   ourServiceUls.classList.toggle("is-active");
 });
+
+function generateCat(data) {
+  const catHTML = data.map((cat) => {
+    return ` <li>
+      <a href="${cat.filelink}">${cat.filename}</a>(${cat.totalfiles})
+    </li>`;
+  }).join("")
+  catagories.innerHTML = catHTML;
+}
 
 // Fetch main navigation data from a JSON file
 fetch("/Json/main-nav.json")
@@ -283,5 +294,3 @@ function generateSideNav(cardsData) {
 
   miniPostLiked.innerHTML = likedMiniCards;
 }
-
-

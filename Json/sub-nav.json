@@ -75,17 +75,17 @@
       {
         "id": 1,
         "subPagename": "Work 1",
-        "subPagelink": "/work1.html"
+        "subPagelink": "/our-work/work1/index.html"
       },
       {
         "id": 2,
         "subPagename": "Work 2",
-        "subPagelink": "/work2.html"
+        "subPagelink": "/our-work/work2/index.html"
       },
       {
         "id": 3,
         "subPagename": "Work 3",
-        "subPagelink": "/work3.html"
+        "subPagelink": "/our-work/work3/index.html"
       }
     ]
   }

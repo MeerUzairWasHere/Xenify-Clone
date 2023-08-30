@@ -219,6 +219,7 @@ span {
 }
 .wrapper {
   width: 90%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,23 +240,60 @@ ul .is-active {
 #mobile-subnav {
   display: none;
 }
+footer ul li a:hover {
+  color: #ff580c;
+}
+.footer-span a {
+  color: #1a73e8;
+  font-weight: 700;
+}
+
+footer {
+  display: flex;
+  font-family: "inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 86px;
+  justify-content: space-between;
+}
+.footer-navbar ul li {
+  list-style: none;
+}
+.footer-navbar ul {
+  display: flex;
+  gap: 20px;
+}
+
+.cat-container ul li {
+  list-style: none;
+  font-family: "inter", sans-serif;
+  display: flex;
+  font-size: 14px;
+  padding: 5px;
+  color: #979799;
+  line-height: 19px;
+  justify-content: space-between;
+}
+.cat-container ul li a:hover{
+  color: #ff580c;
+}
+.cat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Jost", sans-serif;
+  padding: 15px;
+}
+.cat-title{
+  font-size: 16px;
+  font-family: "Jost", sans-serif;
+}
 
 @media screen and (max-width: 450px) {
   #container {
     display: none;
   }
-
-  /* .active {
-    width: 300px;
-    padding: 20px;
-    position: absolute;
-    height: 100%;
-    flex-direction: column;
-    margin: 0;
-    top: 120px;
-    align-items: flex-start;
-    transition: ease-in-out 0.5s;
-  } */
 
   #mobile-subnav {
     display: flex;
@@ -267,9 +305,9 @@ ul .is-active {
     left: -100%;
     transition: ease-in-out 0.5s;
   }
-.dropdown ul{
-  margin: 10px;
-}
+  .dropdown ul {
+     padding: 10px;
+  }
   #mobile-subnav ul {
     flex-direction: column;
     width: 100%;
@@ -285,7 +323,8 @@ ul .is-active {
     /* font-family: "jost", sans-serif; */
     width: 100%;
   }
-  #mobile-subnav ul li a:hover,.mobile-nav a:hover{
+  #mobile-subnav ul li a:hover,
+  .mobile-nav a:hover {
     color: #ff580c;
     cursor: pointer;
   }
@@ -294,11 +333,17 @@ ul .is-active {
   #our-work-subnav {
     flex-direction: column;
   }
-  
-  .mobile-nav-lis span{
+  footer {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 20px;
+  }
+  .mobile-nav-lis span {
     font-family: "Jost", sans-serif;
   }
-  #our-service-uls li a,#our-work-uls li a{
+  #our-service-uls li a,
+  #our-work-uls li a {
     font-weight: 200;
   }
   .mobile-nav-header {
