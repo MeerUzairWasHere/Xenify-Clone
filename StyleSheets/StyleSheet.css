@@ -309,8 +309,12 @@ footer {
     padding: 10px;
   }
   #mobile-subnav ul li a {
-    font-family: "inter", sans-serif;
+    font-family: "Jost", sans-serif;
     text-transform: capitalize;
+  }
+  #our-service-subnav > #our-service-uls   li a,#our-work-subnav > #our-work-uls  li a{
+    
+    font-family: "Inter", sans-serif;
   }
   #our-service-subnav > #our-service-uls,#our-work-subnav > #our-work-uls {
     padding: 10px;
@@ -328,7 +332,7 @@ footer {
   }
   #mobile-subnav ul li {
     height: auto;
-    /* font-family: "jost", sans-serif; */
+    font-family: "jost", sans-serif;
     width: 100%;
   }
   #mobile-subnav ul li a:hover,
