@@ -82,28 +82,37 @@ async function generateNavlinks(mainNavData) {
           (subNavLink) => subNavLink.mainNavId === mainNavLink.id
         );
 
-        const subNavLinks = subNav && subNav.subNavItems
-          ? `<ul class="sub-nav">${subNav.subNavItems
-            .map(
-              (subNavLink) => `<li data-title="${subNavLink.title}" class="sub-nav-li" id="${subNavLink.id}">
+        const subNavLinks =
+          subNav && subNav.subNavItems
+            ? `<ul class="sub-nav">${subNav.subNavItems
+                .map(
+                  (subNavLink) => `<li data-title="${
+                    subNavLink.title
+                  }" class="sub-nav-li" id="${subNavLink.id}">
                   <a href="${subNavLink.subPagelink}">
                     ${
                       subNavLink.imageUrl
                         ? `<img src="${subNavLink.imageUrl}" class="nav-img" width="150" height="150" alt="Image">`
                         : ""
                     }
-                    <h3 class="nav-title">${subNavLink.title || subNavLink.subPagename}</h2>
+                    <h3 class="nav-title">${
+                      subNavLink.title || subNavLink.subPagename
+                    }</h2>
                     <p>${subNavLink.description || ""}</p>
                     <small>${subNavLink.date || ""}</small>
                   </a>
                 </li>`
-            )
-            .join("")}</ul>`
-          : "";
+                )
+                .join("")}</ul>`
+            : "";
 
-        return `<li class="nav-li ${mainNavLink.id == "2" ? "mega-menu" : ""}" id="${mainNavLink.id}">
+        return `<li class="nav-li ${
+          mainNavLink.id == "2" ? "mega-menu" : ""
+        }" id="${mainNavLink.id}">
               <a href="${mainNavLink.pagelink}">
-                ${mainNavLink.icon + mainNavLink.pagename + mainNavLink.dropdown}
+                ${
+                  mainNavLink.icon + mainNavLink.pagename + mainNavLink.dropdown
+                }
               </a>
               ${subNavLinks}
             </li>`;
@@ -129,7 +138,8 @@ async function fetchCardData() {
 async function renderCards() {
   try {
     const data = await fetchCardData();
-    const cardHTML = data.map((card) => {
+    const cardHTML = data
+      .map((card) => {
         return `<div class='card'>
                   <span class='title'>${card.title}</span>
                   <span class="description"><a href="${card.href}">${card.description}</a></span>
@@ -204,22 +214,34 @@ async function generateSideNav() {
 
     cardPostsHTML = `
       <a href="${data[randomIndex + 1].href}">
-        <img src="${data[randomIndex + 1].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img">
+        <img src="${
+          data[randomIndex + 1].imageUrl
+        }" class="img" style="border-radius:0;" height="200" alt="img">
         <div class="img-post-detail">
           <span class="post-title">${data[randomIndex + 1].title}</span>
-          <span class="post-description">${data[randomIndex + 1].description}</span>
-          <span class="post-author">by <strong>${data[randomIndex + 1].author}</strong></span>
+          <span class="post-description">${
+            data[randomIndex + 1].description
+          }</span>
+          <span class="post-author">by <strong>${
+            data[randomIndex + 1].author
+          }</strong></span>
           <span class="post-date"> - ${data[randomIndex + 1].date}</span>
         </div>
       </a>`;
 
     likedCardPostsHTML = `
       <a href="${data[randomIndex + 2].href}">
-        <img src="${data[randomIndex + 2].imageUrl}" class="img" style="border-radius:0;" height="200" alt="">
+        <img src="${
+          data[randomIndex + 2].imageUrl
+        }" class="img" style="border-radius:0;" height="200" alt="">
         <div class="img-post-detail">
           <span class="post-title">${data[randomIndex + 2].title}</span>
-          <span class="post-description">${data[randomIndex + 2].description}</span>
-          <span class="post-author">by <strong>${data[randomIndex + 2].author}</strong></span>
+          <span class="post-description">${
+            data[randomIndex + 2].description
+          }</span>
+          <span class="post-author">by <strong>${
+            data[randomIndex + 2].author
+          }</strong></span>
           <span class="post-date"> - ${data[randomIndex + 2].date}</span>
         </div>
       </a>`;
