@@ -1,4 +1,4 @@
-// Get the HTML elements from the DOM
+﻿// Get the HTML elements from the DOM
 const container = document.getElementById("container");
 const heroDiv = document.getElementById("hero-section-container");
 const heroCorousal = document.getElementById("hero-corousal");
@@ -128,12 +128,6 @@ async function fetchCardData() {
     return [];
   }
 }
-
-
-
-
-
-
 
 async function generateSideNav() {
   try {
