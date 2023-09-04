@@ -216,3 +216,28 @@ async function generateSideNav() {
   const mainNavData = mainNavResponse;
   await generateNavlinks(mainNavData);
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const shareButton = document.getElementById("share-button");
+
+  shareButton.addEventListener("click", function () {
+    shareCurrentPage();
+  });
+
+  function shareCurrentPage() {
+    const shareUrl = window.location.href;
+
+    if (navigator.share) {
+      navigator
+        .share({
+          title: document.title,
+          url: shareUrl,
+        })
+        .catch((error) => console.error("Error sharing:", error));
+    } else {
+      // If the Web Share API is not available, you can provide fallback options here.
+      // For example, open a share dialog for each platform individually as shown in previous examples.
+      console.log("Web Share API is not supported in this browser.");
+    }
+  }
+});

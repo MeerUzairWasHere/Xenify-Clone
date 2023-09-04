@@ -182,8 +182,28 @@ main {
 }
 .info {
   font-size: 1rem;
+  display: flex;
+  margin-top: 10px;
+  gap:5px;
   font-family: "inter", sans-serif;
 }
+
+#share-button .fa-solid{
+  margin-top: 2px;
+ 
+}
+#share-button:hover{
+  cursor: pointer;
+
+}
+#share-button{
+  margin-left:auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap:5px;
+}
+
 .dummy-img{
   display: flex;
   flex-wrap: wrap;
@@ -264,3 +284,4 @@ main {
 
   }
 }
+

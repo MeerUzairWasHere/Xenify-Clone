@@ -4,7 +4,7 @@
     "subNavItems": [
       {
         "id": 1,
-        "subPagelink": "/subpages/health.html",
+        "subPagelink": "/pages/health.html",
         "imageUrl": "/assets/health.jpeg",
         "title": "Health",
         "description": "Our Kids Started A Podcast Listen To It Now!",
@@ -12,7 +12,7 @@
       },
       {
         "id": 2,
-        "subPagelink": "/subpages/technology.html",
+        "subPagelink": "/pages/technology.html",
         "imageUrl": "/assets/img1.jpg",
         "title": "Technology",
         "description": "New Gadgets for 2023 Revealed!",
@@ -20,7 +20,7 @@
       },
       {
         "id": 3,
-        "subPagelink": "/subpages/travel.html",
+        "subPagelink": "/pages/travel.html",
         "imageUrl": "/assets/travel.jpeg",
         "title": "Travel",
         "description": "Exploring Hidden Gems in Europe",
@@ -28,7 +28,7 @@
       },
       {
         "id": 4,
-        "subPagelink": "/subpages/food.html",
+        "subPagelink": "/pages/food.html",
         "imageUrl": "/assets/food.jpeg",
         "title": "Food",
         "description": "Delicious Recipes for Summer",
@@ -36,7 +36,7 @@
       },
       {
         "id": 5,
-        "subPagelink": "/subpages/fitness.html",
+        "subPagelink": "/pages/fitness.html",
         "imageUrl": "/assets/fitness.jpeg",
         "title": "Fitness",
         "description": "Effective Ways to Stay Active at Home",

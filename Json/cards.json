@@ -7,7 +7,7 @@
     "author": "John Carter",
     "date": "March 19, 2016",
     "imageUrl": "/assets/health.jpeg",
-    "href": "/subpages/health.html"
+    "href": "/pages/health.html"
   },
   {
     "id": "2",
@@ -17,7 +17,7 @@
     "author": "Emily Smith",
     "date": "August 8, 2023",
     "imageUrl": "/assets/img1.jpg",
-    "href": "/subpages/technology.html"
+    "href": "/pages/technology.html"
   },
   {
     "id": "3",
@@ -27,7 +27,7 @@
     "author": "Alex Johnson",
     "date": "July 2, 2023",
     "imageUrl": "/assets/travel.jpeg",
-    "href": "/subpages/travel.html"
+    "href": "/pages/travel.html"
   },
   {
     "id": "4",
@@ -37,7 +37,7 @@
     "author": "Sophia Martinez",
     "date": "June 15, 2023",
     "imageUrl": "/assets/food.jpeg",
-    "href": "/subpages/food.html"
+    "href": "/pages/food.html"
   },
   {
     "id": "5",
@@ -47,7 +47,7 @@
     "author": "David Williams",
     "date": "April 28, 2023",
     "imageUrl": "/assets/fitness.jpeg",
-    "href": "/subpages/fitness.html"
+    "href": "/pages/fitness.html"
   },
   {
     "id": "6",
@@ -57,7 +57,7 @@
     "author": "Jessica Brown",
     "date": "May 10, 2023",
     "imageUrl": "/assets/lifestyle.jpeg",
-    "href": "/subpages/lifestyle.html"
+    "href": "/pages/lifestyle.html"
   },
   {
     "id": "7",
@@ -67,7 +67,7 @@
     "author": "Michael Johnson",
     "date": "August 15, 2023",
     "imageUrl": "/assets/science.webp",
-    "href": "/subpages/science.html"
+    "href": "/pages/science.html"
   },
   {
     "id": "8",
@@ -77,7 +77,7 @@
     "author": "Sophie Adams",
     "date": "July 29, 2023",
     "imageUrl": "/assets/art.webp",
-    "href": "/subpages/art.html"
+    "href": "/pages/art.html"
   },
   {
     "id": "9",
@@ -87,7 +87,7 @@
     "author": "Daniel Lee",
     "date": "September 5, 2023",
     "imageUrl": "/assets/fashion.webp",
-    "href": "/subpages/fashion.html"
+    "href": "/pages/fashion.html"
   },
   {
     "id": "10",
@@ -97,7 +97,7 @@
     "author": "Olivia Green",
     "date": "August 3, 2023",
     "imageUrl": "/assets/business.webp",
-    "href": "/subpages/business.html"
+    "href": "/pages/business.html"
   },
   {
     "id": "11",
@@ -107,7 +107,7 @@
     "author": "Robert Carter",
     "date": "July 18, 2023",
     "imageUrl": "/assets/environment.jpeg",
-    "href": "/subpages/environment.html"
+    "href": "/pages/environment.html"
   },
   {
     "id": "12",
@@ -117,6 +117,6 @@
     "author": "Megan Turner",
     "date": "June 5, 2023",
     "imageUrl": "/assets/education.webp",
-    "href": "/subpages/education.html"
+    "href": "/pages/education.html"
   }
 ]
