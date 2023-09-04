@@ -55,7 +55,7 @@ serviceSubnav.addEventListener("click", () => {
   ourServiceUls.classList.toggle("is-active");
 });
 
-async function generateNavlinks(mainNavData, subNavData) {
+async function generateNavlinks(mainNavData) {
   try {
     const subNavResponse = await fetchData("/Json/sub-nav.json");
     const subNavData = subNavResponse;
@@ -129,12 +129,6 @@ async function fetchCardData() {
   }
 }
 
-
-
-
-
-
-
 async function generateSideNav() {
   try {
     const data = await fetchCardData();
@@ -143,38 +137,26 @@ async function generateSideNav() {
     let likedCardPostsHTML = "";
 
     cardPostsHTML = `
-    <a href="${data[randomIndex + 1].href}">
-    <img src="${
-      data[randomIndex + 1].imageUrl
-    }" class="img" style="border-radius:0;" height="200" alt="img"   >
+    <a href="${data[randomIndex].href}">
+    <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img"   >
 
     <div class="img-post-detail">
-    <span class="post-title">${data[randomIndex + 1].title}</span>
-            <span class="post-description"> ${
-              data[randomIndex + 1].description
-            }</span>
-            <span class="post-author">by <strong>${
-              data[randomIndex + 1].author
-            }</strong></span>
-            <span class="post-date"> - ${data[randomIndex + 1].date}</span>
+    <span class="post-title">${data[randomIndex].title}</span>
+            <span class="post-description"> ${data[randomIndex].description}</span>
+            <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
+            <span class="post-date"> - ${data[randomIndex].date}</span>
     </div>
     </a>`;
 
     likedCardPostsHTML = `
-    <a href="${data[randomIndex + 2].href}" >
-    <img src="${
-      data[randomIndex + 2].imageUrl
-    }" class="img" style="border-radius:0;" height="200" alt=""  >
+    <a href="${data[randomIndex].href}" >
+    <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt=""  >
 
       <div class="img-post-detail" >
-              <span class="post-title">${data[randomIndex + 2].title}</span>
-              <span class="post-description">${
-                data[randomIndex + 2].description
-              }</span>
-              <span class="post-author">by <strong>${
-                data[randomIndex + 2].author
-              }</strong></span>
-              <span class="post-date"> - ${data[randomIndex + 2].date}</span>
+              <span class="post-title">${data[randomIndex].title}</span>
+              <span class="post-description">${data[randomIndex].description}</span>
+              <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
+              <span class="post-date"> - ${data[randomIndex].date}</span>
       </div>
       </a>`;
 
@@ -228,9 +210,9 @@ async function generateSideNav() {
 
 // Call the async functions to start fetching and rendering data
 (async () => {
+  await generateSideNav();
   await generateCat();
   const mainNavResponse = await fetchData("/Json/main-nav.json");
   const mainNavData = mainNavResponse;
   await generateNavlinks(mainNavData);
-  await generateSideNav();
 })();

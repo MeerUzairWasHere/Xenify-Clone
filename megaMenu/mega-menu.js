@@ -130,38 +130,38 @@ function generateSideNav(cardsData) {
   let likedCardPostsHTML = "";
 
   cardPostsHTML = `
-  <a href="${cardsData[randomIndex + 1].href}">
+  <a href="${cardsData[randomIndex].href}">
   <img src="${
-    cardsData[randomIndex + 1].imageUrl
+    cardsData[randomIndex].imageUrl
   }" class="img" style="border-radius:0;" height="200" alt="img"   >
 
   <div class="img-post-detail">
-  <span class="post-title">${cardsData[randomIndex + 1].title}</span>
+  <span class="post-title">${cardsData[randomIndex].title}</span>
           <span class="post-description"> ${
-            cardsData[randomIndex + 1].description
+            cardsData[randomIndex].description
           }</span>
           <span class="post-author">by <strong>${
-            cardsData[randomIndex + 1].author
+            cardsData[randomIndex].author
           }</strong></span>
-          <span class="post-date"> - ${cardsData[randomIndex + 1].date}</span>
+          <span class="post-date"> - ${cardsData[randomIndex].date}</span>
   </div>
   </a>`;
 
   likedCardPostsHTML = `
-  <a href="${cardsData[randomIndex + 2].href}" >
+  <a href="${cardsData[randomIndex].href}" >
   <img src="${
-    cardsData[randomIndex + 2].imageUrl
+    cardsData[randomIndex].imageUrl
   }" class="img" style="border-radius:0;" height="200" alt=""  >
 
     <div class="img-post-detail" >
-            <span class="post-title">${cardsData[randomIndex + 2].title}</span>
+            <span class="post-title">${cardsData[randomIndex].title}</span>
             <span class="post-description">${
-              cardsData[randomIndex + 2].description
+              cardsData[randomIndex].description
             }</span>
             <span class="post-author">by <strong>${
-              cardsData[randomIndex + 2].author
+              cardsData[randomIndex].author
             }</strong></span>
-            <span class="post-date"> - ${cardsData[randomIndex + 2].date}</span>
+            <span class="post-date"> - ${cardsData[randomIndex].date}</span>
     </div>
     </a>`;
 

@@ -137,38 +137,38 @@ async function generateSideNav() {
     let likedCardPostsHTML = "";
 
     cardPostsHTML = `
-    <a href="${data[randomIndex + 1].href}">
+    <a href="${data[randomIndex].href}">
     <img src="${
-      data[randomIndex + 1].imageUrl
+      data[randomIndex].imageUrl
     }" class="img" style="border-radius:0;" height="200" alt="img"   >
 
     <div class="img-post-detail">
-    <span class="post-title">${data[randomIndex + 1].title}</span>
+    <span class="post-title">${data[randomIndex].title}</span>
             <span class="post-description"> ${
-              data[randomIndex + 1].description
+              data[randomIndex].description
             }</span>
             <span class="post-author">by <strong>${
-              data[randomIndex + 1].author
+              data[randomIndex].author
             }</strong></span>
-            <span class="post-date"> - ${data[randomIndex + 1].date}</span>
+            <span class="post-date"> - ${data[randomIndex].date}</span>
     </div>
     </a>`;
 
     likedCardPostsHTML = `
-    <a href="${data[randomIndex + 2].href}" >
+    <a href="${data[randomIndex].href}" >
     <img src="${
-      data[randomIndex + 2].imageUrl
+      data[randomIndex].imageUrl
     }" class="img" style="border-radius:0;" height="200" alt=""  >
 
       <div class="img-post-detail" >
-              <span class="post-title">${data[randomIndex + 2].title}</span>
+              <span class="post-title">${data[randomIndex].title}</span>
               <span class="post-description">${
-                data[randomIndex + 2].description
+                data[randomIndex].description
               }</span>
               <span class="post-author">by <strong>${
-                data[randomIndex + 2].author
+                data[randomIndex].author
               }</strong></span>
-              <span class="post-date"> - ${data[randomIndex + 2].date}</span>
+              <span class="post-date"> - ${data[randomIndex].date}</span>
       </div>
       </a>`;
 
