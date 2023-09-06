@@ -1,4 +1,4 @@
-﻿// Get the HTML elements from the DOM
+// Get the HTML elements from the DOM
 const container = document.getElementById("container");
 const heroDiv = document.getElementById("hero-section-container");
 const heroCorousal = document.getElementById("hero-corousal");
@@ -25,7 +25,7 @@ async function fetchData(url) {
 
 async function generateCat() {
   try {
-    const data = await fetchData("../our-services/servicesJson/catagories.json");
+    const data = await fetchData("../../our-work/workpagesJson/catagories.json");
     const catHTML = data
       .map((cat) => {
         return ` <li>
@@ -57,7 +57,7 @@ serviceSubnav.addEventListener("click", () => {
 
 async function generateNavlinks(mainNavData, subNavData) {
   try {
-    const subNavResponse = await fetchData("../our-services/servicesJson/sub-nav.json");
+    const subNavResponse = await fetchData("../../our-work/workpagesJson/sub-nav.json");
     const subNavData = subNavResponse;
     // Generate navigation bar using main and sub navigation data
     const navbar = mainNavData
@@ -121,7 +121,7 @@ async function generateNavlinks(mainNavData, subNavData) {
 
 async function fetchCardData() {
   try {
-    const response = await fetchData("../our-services/servicesJson/cards.json");
+    const response = await fetchData("../../our-work/workpagesJson/cards.json");
     return response;
   } catch (error) {
     console.error("Error fetching card data:", error);
@@ -223,9 +223,8 @@ async function generateSideNav() {
 // Call the async functions to start fetching and rendering data
 (async () => {
   await generateCat();
-  const mainNavResponse = await fetchData("../our-services/servicesJson/main-nav.json");
+  const mainNavResponse = await fetchData("../../our-work/workpagesJson/main-nav.json");
   const mainNavData = mainNavResponse;
   await generateNavlinks(mainNavData);
   await generateSideNav();
 })();
-

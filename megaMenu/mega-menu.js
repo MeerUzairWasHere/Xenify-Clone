@@ -44,11 +44,11 @@ function generateCat(data) {
 }
 
 // Fetch main navigation data from a JSON file
-fetch("/Json/main-nav.json")
+fetch("../pages/pagesJson/main-nav.json")
   .then((response) => response.json())
   .then((mainNavData) => {
     // Fetch sub-navigation data from a JSON file
-    fetch("/Json/sub-nav.json")
+    fetch("../pages/pagesJson/sub-nav.json")
       .then((response) => response.json())
       .then((subNavData) => generateNavlinks(mainNavData, subNavData));
   });
@@ -111,11 +111,11 @@ function generateNavlinks(mainNavData, subNavData) {
 }
 
 // Fetch card data from a JSON file
-fetch("/Json/cards.json")
+fetch("../pages/pagesJson/cards.json")
   .then((res) => res.json())
   .then((Cardsdata) => {
     // Call functions to render carousel and cards
-    fetch("/Json/catagories.json")
+    fetch("../pages/pagesJson/catagories.json")
       .then((res) => res.json())
       .then((data) => {
         generateSideNav(Cardsdata);
@@ -131,36 +131,24 @@ function generateSideNav(cardsData) {
 
   cardPostsHTML = `
   <a href="${cardsData[randomIndex].href}">
-  <img src="${
-    cardsData[randomIndex].imageUrl
-  }" class="img" style="border-radius:0;" height="200" alt="img"   >
+  <img src="${cardsData[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img"   >
 
   <div class="img-post-detail">
   <span class="post-title">${cardsData[randomIndex].title}</span>
-          <span class="post-description"> ${
-            cardsData[randomIndex].description
-          }</span>
-          <span class="post-author">by <strong>${
-            cardsData[randomIndex].author
-          }</strong></span>
+          <span class="post-description"> ${cardsData[randomIndex].description}</span>
+          <span class="post-author">by <strong>${cardsData[randomIndex].author}</strong></span>
           <span class="post-date"> - ${cardsData[randomIndex].date}</span>
   </div>
   </a>`;
 
   likedCardPostsHTML = `
   <a href="${cardsData[randomIndex].href}" >
-  <img src="${
-    cardsData[randomIndex].imageUrl
-  }" class="img" style="border-radius:0;" height="200" alt=""  >
+  <img src="${cardsData[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt=""  >
 
     <div class="img-post-detail" >
             <span class="post-title">${cardsData[randomIndex].title}</span>
-            <span class="post-description">${
-              cardsData[randomIndex].description
-            }</span>
-            <span class="post-author">by <strong>${
-              cardsData[randomIndex].author
-            }</strong></span>
+            <span class="post-description">${cardsData[randomIndex].description}</span>
+            <span class="post-author">by <strong>${cardsData[randomIndex].author}</strong></span>
             <span class="post-date"> - ${cardsData[randomIndex].date}</span>
     </div>
     </a>`;

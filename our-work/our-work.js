@@ -25,7 +25,7 @@ async function fetchData(url) {
 
 async function generateCat() {
   try {
-    const data = await fetchData("/Json/catagories.json");
+    const data = await fetchData("../our-work/workJson/catagories.json");
     const catHTML = data
       .map((cat) => {
         return ` <li>
@@ -57,7 +57,7 @@ serviceSubnav.addEventListener("click", () => {
 
 async function generateNavlinks(mainNavData, subNavData) {
   try {
-    const subNavResponse = await fetchData("/Json/sub-nav.json");
+    const subNavResponse = await fetchData("../our-work/workJson/sub-nav.json");
     const subNavData = subNavResponse;
     // Generate navigation bar using main and sub navigation data
     const navbar = mainNavData
@@ -74,7 +74,7 @@ async function generateNavlinks(mainNavData, subNavData) {
                 .map(
                   (
                     subNavLink
-                  ) => `<li ${`data-title="${subNavLink.title}"`} onclick="getTitle(event)" class="sub-nav-li" id="${
+                  ) => `<li  class="sub-nav-li" id="${
                     subNavLink.id
                   }">
                   <a href="${subNavLink.subPagelink}">
@@ -121,7 +121,7 @@ async function generateNavlinks(mainNavData, subNavData) {
 
 async function fetchCardData() {
   try {
-    const response = await fetchData("/Json/cards.json");
+    const response = await fetchData("../our-work/workJson/cards.json");
     return response;
   } catch (error) {
     console.error("Error fetching card data:", error);
@@ -212,7 +212,7 @@ async function generateSideNav() {
 (async () => {
   await generateSideNav();
   await generateCat();
-  const mainNavResponse = await fetchData("/Json/main-nav.json");
+  const mainNavResponse = await fetchData("../our-work/workJson/main-nav.json");
   const mainNavData = mainNavResponse;
   await generateNavlinks(mainNavData);
 })();

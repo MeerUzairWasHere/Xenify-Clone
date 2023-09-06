@@ -1,0 +1,45 @@
+[
+    {
+      "id": 0,
+      "pagename": "<img src='../../assets/xenify-logo.png' height='30' />",
+      "pagelink": "../index.html",
+      "icon": "",
+      "dropdown": ""
+    },
+    {
+      "id": 1,
+      "pagename": "Home",
+      "pagelink": "../../index.html",
+      "icon": "<i class='fa-solid fa-house'></i>",
+      "dropdown": ""
+    },
+    {
+      "id": 2,
+      "pagename": "Mega Menu",
+      "pagelink": "../../megaMenu/megaMenu.html",
+      "icon": "<i class='fa-solid fa-address-card'></i>",
+      "dropdown": "<i class='fa-solid fa-caret-down'></i>"
+    },
+    {
+      "id": 3,
+      "pagename": "Contact Us",
+      "pagelink": "../../contact-us/contact-us.html",
+      "icon": "<i class='fa-solid fa-address-book'></i>",
+      "dropdown": ""
+    },
+    {
+      "id": 4,
+      "pagename": "Our Services",
+      "pagelink": "../../our-services/index.html",
+      "icon": "<i class='fa-solid fa-clone'></i>",
+      "dropdown": "<i class='fa-solid fa-caret-down'></i>"
+    },
+    {
+      "id": 5,
+      "pagename": "Our Works",
+      "pagelink": "../../our-work/our-work.html",
+      "icon": "<i class='fa-solid fa-wrench'></i>",
+      "dropdown": "<i class='fa-solid fa-caret-down'></i>"
+    }
+  ]
+  

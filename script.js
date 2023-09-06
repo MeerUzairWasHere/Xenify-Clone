@@ -30,7 +30,7 @@ async function fetchData(url) {
 
 async function generateCat() {
   try {
-    const data = await fetchData("/Json/catagories.json");
+    const data = await fetchData("./Json/catagories.json");
     const catHTML = data
       .map((cat) => {
         return ` <li>
@@ -73,7 +73,7 @@ function setupEventListeners() {
 
 async function generateNavlinks(mainNavData) {
   try {
-    const subNavResponse = await fetchData("/Json/sub-nav.json");
+    const subNavResponse = await fetchData("./Json/sub-nav.json");
     const subNavData = subNavResponse;
 
     const navbar = mainNavData
@@ -127,7 +127,7 @@ async function generateNavlinks(mainNavData) {
 
 async function fetchCardData() {
   try {
-    const response = await fetchData("/Json/cards.json");
+    const response = await fetchData("./Json/cards.json");
     return response || [];
   } catch (error) {
     console.error("Error fetching card data:", error);
@@ -285,7 +285,7 @@ async function generateSideNav() {
 (async () => {
   setupEventListeners();
   await generateCat();
-  const mainNavResponse = await fetchData("/Json/main-nav.json");
+  const mainNavResponse = await fetchData("./Json/main-nav.json");
   await generateNavlinks(mainNavResponse);
   await renderCards();
   await renderCorousal();

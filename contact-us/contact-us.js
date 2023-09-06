@@ -42,11 +42,11 @@ function generateCat(data) {
 }
 
 // Fetch main navigation data from a JSON file
-fetch("/Json/main-nav.json")
+fetch("../pages/pagesJson/main-nav.json")
   .then((response) => response.json())
   .then((mainNavData) => {
     // Fetch sub-navigation data from a JSON file
-    fetch("/Json/sub-nav.json")
+    fetch("../pages/pagesJson/sub-nav.json")
       .then((response) => response.json())
       .then((subNavData) => generateNavlinks(mainNavData, subNavData));
   });
@@ -109,11 +109,11 @@ function generateNavlinks(mainNavData, subNavData) {
 }
 
 // Fetch card data from a JSON file
-fetch("/Json/cards.json")
+fetch("../pages/pagesJson/cards.json")
   .then((res) => res.json())
   .then((Cardsdata) => {
     // Call functions to render carousel and cards
-    fetch("/Json/catagories.json")
+    fetch("../pages/pagesJson/catagories.json")
       .then((res) => res.json())
       .then((data) => {
         generateSideNav(Cardsdata);

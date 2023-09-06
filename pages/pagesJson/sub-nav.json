@@ -4,40 +4,40 @@
     "subNavItems": [
       {
         "id": 1,
-        "subPagelink": "./pages/health.html",
-        "imageUrl": "./assets/health.jpeg",
+        "subPagelink": "../pages/health.html",
+        "imageUrl": "../assets/health.jpeg",
         "title": "Health",
         "description": "Our Kids Started A Podcast Listen To It Now!",
         "date": "March 19, 2016"
       },
       {
         "id": 2,
-        "subPagelink": "./pages/technology.html",
-        "imageUrl": "./assets/img1.jpg",
+        "subPagelink": "../pages/technology.html",
+        "imageUrl": "../assets/img1.jpg",
         "title": "Technology",
         "description": "New Gadgets for 2023 Revealed!",
         "date": "August 8, 2023"
       },
       {
         "id": 3,
-        "subPagelink": "./pages/travel.html",
-        "imageUrl": "./assets/travel.jpeg",
+        "subPagelink": "../pages/travel.html",
+        "imageUrl": "../assets/travel.jpeg",
         "title": "Travel",
         "description": "Exploring Hidden Gems in Europe",
         "date": "July 2, 2023"
       },
       {
         "id": 4,
-        "subPagelink": "./pages/food.html",
-        "imageUrl": "./assets/food.jpeg",
+        "subPagelink": "../pages/food.html",
+        "imageUrl": "../assets/food.jpeg",
         "title": "Food",
         "description": "Delicious Recipes for Summer",
         "date": "June 15, 2023"
       },
       {
         "id": 5,
-        "subPagelink": "./pages/fitness.html",
-        "imageUrl": "./assets/fitness.jpeg",
+        "subPagelink": "../pages/fitness.html",
+        "imageUrl": "../assets/fitness.jpeg",
         "title": "Fitness",
         "description": "Effective Ways to Stay Active at Home",
         "date": "April 28, 2023"
@@ -50,17 +50,17 @@
       {
         "id": 1,
         "subPagename": "Service 1",
-        "subPagelink": "./our-services/service1/index.html"
+        "subPagelink": "..our-services/service1/index.html"
       },
       {
         "id": 2,
         "subPagename": "Service 2",
-        "subPagelink": "./our-services/service2/index.html"
+        "subPagelink": "../our-services/service2/index.html"
       },
       {
         "id": 3,
         "subPagename": "Service 3",
-        "subPagelink": "./our-services/service3/index.html"
+        "subPagelink": "../our-services/service3/index.html"
       },
       {
         "id": 4,
@@ -75,17 +75,17 @@
       {
         "id": 1,
         "subPagename": "Work 1",
-        "subPagelink": "./our-work/work1/index.html"
+        "subPagelink": "../our-work/work1/index.html"
       },
       {
         "id": 2,
         "subPagename": "Work 2",
-        "subPagelink": "./our-work/work2/index.html"
+        "subPagelink": "../our-work/work2/index.html"
       },
       {
         "id": 3,
         "subPagename": "Work 3",
-        "subPagelink": "./our-work/work3/index.html"
+        "subPagelink": "../our-work/work3/index.html"
       }
     ]
   }
