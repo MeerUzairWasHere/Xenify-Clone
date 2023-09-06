@@ -50,7 +50,7 @@
       {
         "id": 1,
         "subPagename": "Service 1",
-        "subPagelink": "..our-services/service1/index.html"
+        "subPagelink": "../our-services/service1/index.html"
       },
       {
         "id": 2,
