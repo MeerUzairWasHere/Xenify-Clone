@@ -12,7 +12,9 @@
 html {
   background-color: #f6f6f6;
 }
-
+#logo{
+  display: none;
+}
 /* Main container styling */
 #container {
   height: 90px;
@@ -40,6 +42,21 @@ html {
   justify-content: center;
   align-items: center;
 }
+.hoverUl li a {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+}
+#inner .hoverUl{
+  display: none;
+}
+
+.dropdown:hover #our-work-uls{
+  display: flex;
+}
+.dropdown:hover #our-service-uls{
+  display: flex;
+}
+
 
 /* Styling for navigation links */
 .nav a {
@@ -60,7 +77,12 @@ html {
   height: 100%;
   display: flex;
 }
-
+#mobile-mega-menu ul{
+  display: none;
+}
+#mobile-mega-menu a i{
+  display: none;
+}
 /* Styling for navigation sub-menus */
 .nav .sub-nav {
   position: absolute;

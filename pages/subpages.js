@@ -8,24 +8,24 @@ const miniPost = document.getElementById("mini-post");
 const imgPostLiked = document.getElementById("img-post-liked");
 const miniPostLiked = document.getElementById("mini-post-liked");
 const loadMoreBtn = document.getElementById("loadMore");
-const burgerBtn = document.getElementById("burger-btn");
 const mobileNav = document.getElementById("mobile-nav");
 const mobileSubNav = document.getElementById("mobile-subnav");
-const workSubnav = document.getElementById("our-work-subnav");
-const serviceSubnav = document.getElementById("our-service-subnav");
-const ourServiceUls = document.getElementById("our-service-uls");
-const ourWorkUls = document.getElementById("our-work-uls");
-const closeBtn = document.getElementById("close-btn");
+const mobileSubNavUl = document.getElementById("mobile-subnav-ul");
 const catagories = document.getElementById("catagories");
 
 async function fetchData(url) {
-  const response = await fetch(url);
-  return response.json();
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching data from ${url}:`, error);
+    return null;
+  }
 }
 
 async function generateCat() {
   try {
-    const data = await fetchData("../pages/pagesJson/catagories.json");
+    const data = await fetchData("../Json/catagories.json");
     const catHTML = data
       .map((cat) => {
         return ` <li>
@@ -35,48 +35,29 @@ async function generateCat() {
       .join("");
     catagories.innerHTML = catHTML;
   } catch (error) {
-    console.error("Error fetching catagories:", error);
+    console.error("Error generating catagories:", error);
   }
 }
 
-burgerBtn.addEventListener("click", () => {
-  mobileSubNav.style.left = "0";
-});
-
-closeBtn.addEventListener("click", () => {
-  mobileSubNav.style.left = "-100%";
-});
-
-workSubnav.addEventListener("click", () => {
-  ourWorkUls.classList.toggle("is-active");
-});
-
-serviceSubnav.addEventListener("click", () => {
-  ourServiceUls.classList.toggle("is-active");
-});
 
 async function generateNavlinks(mainNavData) {
   try {
-    const subNavResponse = await fetchData("../pages/pagesJson/sub-nav.json");
+    const subNavResponse = await fetchData("../Json/sub-nav.json");
     const subNavData = subNavResponse;
-    // Generate navigation bar using main and sub navigation data
+
     const navbar = mainNavData
       .map((mainNavLink) => {
-        // Find the corresponding sub-navigation data
         const subNav = subNavData.find(
           (subNavLink) => subNavLink.mainNavId === mainNavLink.id
         );
 
-        // Generate sub-navigation links HTML
         const subNavLinks =
           subNav && subNav.subNavItems
             ? `<ul class="sub-nav">${subNav.subNavItems
                 .map(
-                  (
-                    subNavLink
-                  ) => `<li ${`data-title="${subNavLink.title}"`} onclick="getTitle(event)" class="sub-nav-li" id="${
-                    subNavLink.id
-                  }">
+                  (subNavLink) => `<li data-title="${
+                    subNavLink.title
+                  }" class="sub-nav-li" id="${subNavLink.id}">
                   <a href="${subNavLink.subPagelink}">
                     ${
                       subNavLink.imageUrl
@@ -88,31 +69,26 @@ async function generateNavlinks(mainNavData) {
                     }</h2>
                     <p>${subNavLink.description || ""}</p>
                     <small>${subNavLink.date || ""}</small>
+
                   </a>
                 </li>`
                 )
                 .join("")}</ul>`
             : "";
 
-        // Generate the main navigation link with sub-navigation links
-        return `<li  class="nav-li  ${
+        return `<li class="nav-li ${
           mainNavLink.id == "2" ? "mega-menu" : ""
-        }"  id="${mainNavLink.id}"  >
-            
-                    <a href="${mainNavLink.pagelink}" >
-                      ${
-                        mainNavLink.icon +
-                        mainNavLink.pagename +
-                        mainNavLink.dropdown
-                      }
-                    </a>
-                    ${subNavLinks}
-                    
-                  </li>`;
+        }" id="${mainNavLink.id}">
+              <a href="${mainNavLink.pagelink}">
+                ${
+                  mainNavLink.icon + mainNavLink.pagename + mainNavLink.dropdown
+                }
+              </a>
+              ${subNavLinks}
+            </li>`;
       })
       .join("");
 
-    // Populate the container with generated navigation bar
     container.innerHTML = navbar;
   } catch (error) {
     console.error("Error generating navigation links:", error);
@@ -121,8 +97,8 @@ async function generateNavlinks(mainNavData) {
 
 async function fetchCardData() {
   try {
-    const response = await fetchData("../pages/pagesJson/cards.json");
-    return response;
+    const response = await fetchData("../Json/cards.json");
+    return response || [];
   } catch (error) {
     console.error("Error fetching card data:", error);
     return [];
@@ -132,36 +108,33 @@ async function fetchCardData() {
 async function generateSideNav() {
   try {
     const data = await fetchCardData();
-    let randomIndex = Math.floor(Math.random() * data.length);
+    const randomIndex = Math.floor(Math.random() * data.length);
     let cardPostsHTML = "";
     let likedCardPostsHTML = "";
 
     cardPostsHTML = `
-    <a href="${data[randomIndex].href}">
-    <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img"   >
-
-    <div class="img-post-detail">
-    <span class="post-title">${data[randomIndex].title}</span>
-            <span class="post-description"> ${data[randomIndex].description}</span>
-            <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
-            <span class="post-date"> - ${data[randomIndex].date}</span>
-    </div>
-    </a>`;
+      <a href="${data[randomIndex].href}">
+        <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img">
+        <div class="img-post-detail">
+          <span class="post-title">${data[randomIndex].title}</span>
+          <span class="post-description">${data[randomIndex].description}</span>
+          <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
+          <span class="post-date"> - ${data[randomIndex].date}</span>
+        </div>
+      </a>`;
 
     likedCardPostsHTML = `
-    <a href="${data[randomIndex].href}" >
-    <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt=""  >
-
-      <div class="img-post-detail" >
-              <span class="post-title">${data[randomIndex].title}</span>
-              <span class="post-description">${data[randomIndex].description}</span>
-              <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
-              <span class="post-date"> - ${data[randomIndex].date}</span>
-      </div>
+      <a href="${data[randomIndex].href}">
+        <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="">
+        <div class="img-post-detail">
+          <span class="post-title">${data[randomIndex].title}</span>
+          <span class="post-description">${data[randomIndex].description}</span>
+          <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
+          <span class="post-date"> - ${data[randomIndex].date}</span>
+        </div>
       </a>`;
 
     imgPost.innerHTML = cardPostsHTML;
-
     imgPostLiked.innerHTML = likedCardPostsHTML;
 
     let miniCards = "";
@@ -170,76 +143,173 @@ async function generateSideNav() {
     for (let i = 0; i < 12; i++) {
       if (i % 2 == 0) {
         miniCards += `
-        <a href="${data[i].href}">
-        <div class="flex"  >
-        <div class="mini-img">
-        <img src="${data[i].imageUrl}"style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
-        </div>
-        
-      <div class="card-post-detail">
-      <span class="post-description">${data[i].description}</span>
-      <span class="post-author" style="color: #979797;"> - ${data[i].author}</span>
-      </div>
-      </div>
-      </a>
-  `;
+          <a href="${data[i].href}">
+            <div class="flex">
+              <div class="mini-img">
+                <img src="${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
+              </div>
+              <div class="card-post-detail">
+                <span class="post-description">${data[i].description}</span>
+                <span class="post-author" style="color: #979797;"> - ${data[i].author}</span>
+              </div>
+            </div>
+          </a>`;
       } else {
         likedMiniCards += `
-        <a href="${data[i].href}">
-        <div class="flex"  >
-        <div class="mini-img">
-        <img src="${data[i].imageUrl}"  style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
-        </div>
-        
-        <div class="card-post-detail">
-        <span class="post-description">${data[i].description}</span>
-        <span class="post-author" style="color: #979797;"> - ${data[i].author}</span>
-      </div>
-      </div>
-      </a>
-  `;
+          <a href="${data[i].href}">
+            <div class="flex">
+              <div class="mini-img">
+                <img src="${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
+              </div>
+              <div class="card-post-detail">
+                <span class="post-description">${data[i].description}</span>
+                <span class="post-author" style="color: #979797;"> - ${data[i].author}</span>
+              </div>
+            </div>
+          </a>`;
       }
     }
-    miniPost.innerHTML = miniCards;
 
+    miniPost.innerHTML = miniCards;
     miniPostLiked.innerHTML = likedMiniCards;
   } catch (error) {
     console.error("Error generating side navigation:", error);
   }
 }
 
-// Call the async functions to start fetching and rendering data
-(async () => {
-  await generateSideNav();
-  await generateCat();
-  const mainNavResponse = await fetchData("../pages/pagesJson/main-nav.json");
-  const mainNavData = mainNavResponse;
-  await generateNavlinks(mainNavData);
-})();
+async function generateMobileNav() {
+  try {
+    let mobileNavHTML = ``;
 
-document.addEventListener("DOMContentLoaded", function () {
-  const shareButton = document.getElementById("share-button");
+    mobileNavHTML = `
+            <a><i class="fa-solid fa-bars fa-xl" id="burger-btn"></i></a>
+            <a href="../index.html"><img src="../assets/xenify-logo.png" width="100" alt="logo"></a>`;
 
-  shareButton.addEventListener("click", function () {
-    shareCurrentPage();
+    mobileNav.innerHTML = mobileNavHTML;
+
+    document.getElementById("burger-btn").addEventListener("click", () => {
+      mobileSubNav.style.left = "0";
+    });
+  } catch (error) {
+    console.error("Error generating side navigation:", error);
+  }
+}
+
+async function generateMobileNavlinks(mainNavData) {
+  try {
+    const subNavResponse = await fetchData("../Json/sub-nav.json");
+    const subNavData = subNavResponse;
+    let mobileNavCanvasHTML = ` 
+        <li class="mobile-nav-header">
+          <a href="../index.html"><img src="../assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+          <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
+        </li>
+        <div class="mobile-nav-lis" id="inner">
+      
+
+        </div>
+
+`;
+
+    const navbar = mainNavData
+      .map((mainNavLink) => {
+        const subNav = subNavData.find(
+          (subNavLink) => subNavLink.mainNavId === mainNavLink.id
+        );
+
+        const subNavLinks =
+          subNav && subNav.subNavItems
+            ? `<ul 
+            
+            id="${
+              mainNavLink.id == "4"
+                ? "our-service-uls"
+                : mainNavLink.id == "5"
+                ? "our-work-uls"
+                : ""
+            }"
+            
+            class="hoverUl" >${subNav.subNavItems
+              .map(
+                (subNavLink) => `<li  id="${subNavLink.id}"> <a href="${
+                  subNavLink.subPagelink
+                }">
+                    
+                    <h3 >${subNavLink.subPagename || ""}</h2>
+                    
+
+                  </a>
+                </li>`
+              )
+              .join("")}</ul>`
+            : "";
+
+        return `
+        
+        <li 
+
+        class="${
+          mainNavLink.id == "4"
+            ? "dropdown"
+            : `${mainNavLink.id == "5" ? "dropdown" : ""}`
+        }"
+        id="${
+          mainNavLink.id == "2"
+            ? "mobile-mega-menu"
+            : mainNavLink.id == "4"
+            ? "our-service-subnav"
+            : `${
+                mainNavLink.id == "5"
+                  ? "our-work-subnav"
+                  : mainNavLink.id == "0"
+                  ? "logo"
+                  : ""
+              }`
+        }">
+        
+        <a href="${mainNavLink.pagelink}"  class="${
+          mainNavLink.id == "4"
+            ? "nav-header"
+            : `${mainNavLink.id == "5" ? "nav-header" : ""}`
+        }" >${mainNavLink.pagename + mainNavLink.dropdown}
+              </a>
+              ${subNavLinks}
+            </li>
+        
+            `;
+      })
+      .join("");
+
+    mobileNavCanvasHTML = ` 
+        <li class="mobile-nav-header">
+          <a href="../index.html"><img src="../assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+          <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
+        </li>
+        <div class="mobile-nav-lis" id="inner">
+        ${navbar}
+        </div>
+
+`;
+
+    mobileSubNavUl.innerHTML = mobileNavCanvasHTML;
+  } catch (error) {
+    console.error("Error generating navigation links:", error);
+  }
+
+  document.getElementById("close-btn").addEventListener("click", () => {
+    mobileSubNav.style.left = "-100%";
   });
 
-  function shareCurrentPage() {
-    const shareUrl = window.location.href;
+  
+}
 
-    if (navigator.share) {
-      navigator
-        .share({
-          title: document.title,
-          url: shareUrl,
-        })
-        .catch((error) => console.error("Error sharing:", error));
-    } else {
-      // If the Web Share API is not available, you can provide fallback options here.
-      // For example, open a share dialog for each platform individually as shown in previous examples.
-      console.log("Web Share API is not supported in this browser.");
-    }
-  }
-});
+// Call the async functions to start fetching and rendering data
+(async () => {
+  generateCat();
+  await generateMobileNav();
+  const mainNavResponse = await fetchData("../Json/main-nav.json");
+  generateNavlinks(mainNavResponse);
+  await generateMobileNavlinks(mainNavResponse);
+  generateSideNav();
+})();
 
-console.log("heloooo");

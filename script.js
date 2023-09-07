@@ -8,14 +8,9 @@ const miniPost = document.getElementById("mini-post");
 const imgPostLiked = document.getElementById("img-post-liked");
 const miniPostLiked = document.getElementById("mini-post-liked");
 const loadMoreBtn = document.getElementById("loadMore");
-const burgerBtn = document.getElementById("burger-btn");
 const mobileNav = document.getElementById("mobile-nav");
 const mobileSubNav = document.getElementById("mobile-subnav");
-const workSubnav = document.getElementById("our-work-subnav");
-const serviceSubnav = document.getElementById("our-service-subnav");
-const ourServiceUls = document.getElementById("our-service-uls");
-const ourWorkUls = document.getElementById("our-work-uls");
-const closeBtn = document.getElementById("close-btn");
+const mobileSubNavUl = document.getElementById("mobile-subnav-ul");
 const catagories = document.getElementById("catagories");
 
 async function fetchData(url) {
@@ -45,22 +40,6 @@ async function generateCat() {
 }
 
 function setupEventListeners() {
-  burgerBtn.addEventListener("click", () => {
-    mobileSubNav.style.left = "0";
-  });
-
-  closeBtn.addEventListener("click", () => {
-    mobileSubNav.style.left = "-100%";
-  });
-
-  workSubnav.addEventListener("click", () => {
-    ourWorkUls.classList.toggle("is-active");
-  });
-
-  serviceSubnav.addEventListener("click", () => {
-    ourServiceUls.classList.toggle("is-active");
-  });
-
   loadMoreBtn.addEventListener("click", () => {
     cardsSection.style.overflowY = "visible";
     cardsSection.style.height = "auto";
@@ -100,6 +79,7 @@ async function generateNavlinks(mainNavData) {
                     }</h2>
                     <p>${subNavLink.description || ""}</p>
                     <small>${subNavLink.date || ""}</small>
+
                   </a>
                 </li>`
                 )
@@ -214,15 +194,11 @@ async function generateSideNav() {
 
     cardPostsHTML = `
       <a href="${data[randomIndex].href}">
-        <img src="${
-          data[randomIndex].imageUrl
-        }" class="img" style="border-radius:0;" height="200" alt="img">
+        <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img">
         <div class="img-post-detail">
           <span class="post-title">${data[randomIndex].title}</span>
           <span class="post-description">${data[randomIndex].description}</span>
-          <span class="post-author">by <strong>${
-            data[randomIndex].author
-          }</strong></span>
+          <span class="post-author">by <strong>${data[randomIndex].author}</strong></span>
           <span class="post-date"> - ${data[randomIndex].date}</span>
         </div>
       </a>`;
@@ -281,14 +257,142 @@ async function generateSideNav() {
   }
 }
 
+async function generateMobileNav() {
+  try {
+    let mobileNavHTML = ``;
+
+    mobileNavHTML = `
+            <a><i class="fa-solid fa-bars fa-xl" id="burger-btn"></i></a>
+            <a href="../index.html"><img src="../assets/xenify-logo.png" width="100" alt="logo"></a>`;
+
+    mobileNav.innerHTML = mobileNavHTML;
+
+    document.getElementById("burger-btn").addEventListener("click", () => {
+      mobileSubNav.style.left = "0";
+    });
+  } catch (error) {
+    console.error("Error generating side navigation:", error);
+  }
+}
+
 // Call the async functions to start fetching and rendering data
 (async () => {
-  setupEventListeners();
-  await generateCat();
+  generateCat();
+  await generateMobileNav();
   const mainNavResponse = await fetchData("./Json/main-nav.json");
-  await generateNavlinks(mainNavResponse);
+  generateNavlinks(mainNavResponse);
+  await generateMobileNavlinks(mainNavResponse);
   await renderCards();
   await renderCorousal();
-  await generateCards();
-  await generateSideNav();
+  generateCards();
+  generateSideNav();
+  setupEventListeners();
 })();
+
+async function generateMobileNavlinks(mainNavData) {
+  try {
+    const subNavResponse = await fetchData("./Json/sub-nav.json");
+    const subNavData = subNavResponse;
+    let mobileNavCanvasHTML = ` 
+        <li class="mobile-nav-header">
+          <a href="./index.html"><img src="./assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+          <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
+        </li>
+        <div class="mobile-nav-lis" id="inner">
+      
+
+        </div>
+
+`;
+
+    const navbar = mainNavData
+      .map((mainNavLink) => {
+        const subNav = subNavData.find(
+          (subNavLink) => subNavLink.mainNavId === mainNavLink.id
+        );
+
+        const subNavLinks =
+          subNav && subNav.subNavItems
+            ? `<ul 
+            
+            id="${
+              mainNavLink.id == "4"
+                ? "our-service-uls"
+                : mainNavLink.id == "5"
+                ? "our-work-uls"
+                : ""
+            }"
+            
+            class="hoverUl" >${subNav.subNavItems
+              .map(
+                (subNavLink) => `<li  id="${subNavLink.id}"> <a href="${
+                  subNavLink.subPagelink
+                }">
+                    
+                    <h3 >${subNavLink.subPagename || ""}</h2>
+                    
+
+                  </a>
+                </li>`
+              )
+              .join("")}</ul>`
+            : "";
+
+        return `
+        
+        <li 
+
+        class="${
+          mainNavLink.id == "4"
+            ? "dropdown"
+            : `${mainNavLink.id == "5" ? "dropdown" : ""}`
+        }"
+        id="${
+          mainNavLink.id == "2"
+            ? "mobile-mega-menu"
+            : mainNavLink.id == "4"
+            ? "our-service-subnav"
+            : `${
+                mainNavLink.id == "5"
+                  ? "our-work-subnav"
+                  : mainNavLink.id == "0"
+                  ? "logo"
+                  : ""
+              }`
+        }">
+        
+        <a href="${mainNavLink.pagelink}"  class="${
+          mainNavLink.id == "4"
+            ? "nav-header"
+            : `${mainNavLink.id == "5" ? "nav-header" : ""}`
+        }" >${mainNavLink.pagename + mainNavLink.dropdown}
+              </a>
+              ${subNavLinks}
+            </li>
+        
+            `;
+      })
+      .join("");
+
+    mobileNavCanvasHTML = ` 
+        <li class="mobile-nav-header">
+          <a href="./index.html"><img src="./assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+          <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
+        </li>
+        <div class="mobile-nav-lis" id="inner">
+        ${navbar}
+        </div>
+
+`;
+
+    mobileSubNavUl.innerHTML = mobileNavCanvasHTML;
+  } catch (error) {
+    console.error("Error generating navigation links:", error);
+  }
+
+  document.getElementById("close-btn").addEventListener("click", () => {
+    mobileSubNav.style.left = "-100%";
+  });
+
+  
+}
