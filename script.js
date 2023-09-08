@@ -91,7 +91,11 @@ async function generateNavlinks(mainNavData) {
         }" id="${mainNavLink.id}">
               <a href="${mainNavLink.pagelink}">
                 ${
-                  mainNavLink.icon + mainNavLink.pagename + mainNavLink.dropdown
+                  mainNavLink.id == "0"
+                    ? `<img src='${mainNavLink.logo}' height='30' />`
+                    : mainNavLink.icon +
+                      mainNavLink.pagename +
+                      mainNavLink.dropdown
                 }
               </a>
               ${subNavLinks}
@@ -257,13 +261,13 @@ async function generateSideNav() {
   }
 }
 
-async function generateMobileNav() {
+async function generateMobileNav(data) {
   try {
     let mobileNavHTML = ``;
 
     mobileNavHTML = `
             <a><i class="fa-solid fa-bars fa-xl" id="burger-btn"></i></a>
-            <a href="../index.html"><img src="../assets/xenify-logo.png" width="100" alt="logo"></a>`;
+            <a href="${data[0].pagelink}"><img src="${data[0].mobileLogo}" width="100" alt="logo"></a>`;
 
     mobileNav.innerHTML = mobileNavHTML;
 
@@ -278,9 +282,9 @@ async function generateMobileNav() {
 // Call the async functions to start fetching and rendering data
 (async () => {
   generateCat();
-  await generateMobileNav();
   const mainNavResponse = await fetchData("./Json/main-nav.json");
   generateNavlinks(mainNavResponse);
+  await generateMobileNav(mainNavResponse);
   await generateMobileNavlinks(mainNavResponse);
   await renderCards();
   await renderCorousal();
@@ -295,7 +299,7 @@ async function generateMobileNavlinks(mainNavData) {
     const subNavData = subNavResponse;
     let mobileNavCanvasHTML = ` 
         <li class="mobile-nav-header">
-          <a href="./index.html"><img src="./assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+          <a href="${mainNavData[0].pagelink}"><img src="${mainNavData[0].mobileLogo}" width="100" alt="xenify-logo"></a>
           <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
         </li>
         <div class="mobile-nav-lis" id="inner">
@@ -376,7 +380,7 @@ async function generateMobileNavlinks(mainNavData) {
 
     mobileNavCanvasHTML = ` 
         <li class="mobile-nav-header">
-          <a href="./index.html"><img src="./assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+        <a href="${mainNavData[0].pagelink}"><img src="${mainNavData[0].mobileLogo}" width="100" alt="xenify-logo"></a>
           <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
         </li>
         <div class="mobile-nav-lis" id="inner">
@@ -393,6 +397,4 @@ async function generateMobileNavlinks(mainNavData) {
   document.getElementById("close-btn").addEventListener("click", () => {
     mobileSubNav.style.left = "-100%";
   });
-
-  
 }

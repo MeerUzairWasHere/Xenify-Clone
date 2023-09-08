@@ -6,8 +6,8 @@
     "subDescription": "Exploring cutting-edge health technologies and practices for a better tomorrow.",
     "author": "John Carter",
     "date": "March 19, 2016",
-    "imageUrl": "../assets/health.jpeg",
-    "href": "../pages/health.html"
+    "imageUrl": "./assets/health.jpeg",
+    "href": "./pages/health.html"
   },
   {
     "id": "2",
@@ -16,8 +16,8 @@
     "subDescription": "Unveiling the latest technological marvels that are shaping our future.",
     "author": "Emily Smith",
     "date": "August 8, 2023",
-    "imageUrl": "../assets/img1.jpg",
-    "href": "../pages/technology.html"
+    "imageUrl": "./assets/img1.jpg",
+    "href": "./pages/technology.html"
   },
   {
     "id": "3",
@@ -26,8 +26,8 @@
     "subDescription": "Embark on a journey to discover lesser-known treasures across Europe.",
     "author": "Alex Johnson",
     "date": "July 2, 2023",
-    "imageUrl": "../assets/travel.jpeg",
-    "href": "../pages/travel.html"
+    "imageUrl": "./assets/travel.jpeg",
+    "href": "./pages/travel.html"
   },
   {
     "id": "4",
@@ -36,8 +36,8 @@
     "subDescription": "Savor the flavors of summer with these mouthwatering and easy-to-make recipes.",
     "author": "Sophia Martinez",
     "date": "June 15, 2023",
-    "imageUrl": "../assets/food.jpeg",
-    "href": "../pages/food.html"
+    "imageUrl": "./assets/food.jpeg",
+    "href": "./pages/food.html"
   },
   {
     "id": "5",
@@ -46,8 +46,8 @@
     "subDescription": "Stay fit and energized with these home-based workout strategies and tips.",
     "author": "David Williams",
     "date": "April 28, 2023",
-    "imageUrl": "../assets/fitness.jpeg",
-    "href": "../pages/fitness.html"
+    "imageUrl": "./assets/fitness.jpeg",
+    "href": "./pages/fitness.html"
   },
   {
     "id": "6",
@@ -56,8 +56,8 @@
     "subDescription": "Craft your ideal morning routine for increased productivity and a positive mindset.",
     "author": "Jessica Brown",
     "date": "May 10, 2023",
-    "imageUrl": "../assets/lifestyle.jpeg",
-    "href": "../pages/lifestyle.html"
+    "imageUrl": "./assets/lifestyle.jpeg",
+    "href": "./pages/lifestyle.html"
   },
   {
     "id": "7",
@@ -66,8 +66,8 @@
     "subDescription": "Dive into the forefront of astrophysics with the most recent groundbreaking discoveries.",
     "author": "Michael Johnson",
     "date": "August 15, 2023",
-    "imageUrl": "../assets/science.webp",
-    "href": "../pages/science.html"
+    "imageUrl": "./assets/science.webp",
+    "href": "./pages/science.html"
   },
   {
     "id": "8",
@@ -76,8 +76,8 @@
     "subDescription": "Immerse yourself in the world of contemporary abstract art and its diverse movements.",
     "author": "Sophie Adams",
     "date": "July 29, 2023",
-    "imageUrl": "../assets/art.webp",
-    "href": "../pages/art.html"
+    "imageUrl": "./assets/art.webp",
+    "href": "./pages/art.html"
   },
   {
     "id": "9",
@@ -86,8 +86,8 @@
     "subDescription": "Stay stylish this season with a roundup of the latest fashion trends for fall and winter.",
     "author": "Daniel Lee",
     "date": "September 5, 2023",
-    "imageUrl": "../assets/fashion.webp",
-    "href": "../pages/fashion.html"
+    "imageUrl": "./assets/fashion.webp",
+    "href": "./pages/fashion.html"
   },
   {
     "id": "10",
@@ -96,8 +96,8 @@
     "subDescription": "Gain insights from successful startup founders and their journey to business success.",
     "author": "Olivia Green",
     "date": "August 3, 2023",
-    "imageUrl": "../assets/business.webp",
-    "href": "../pages/business.html"
+    "imageUrl": "./assets/business.webp",
+    "href": "./pages/business.html"
   },
   {
     "id": "11",
@@ -106,8 +106,8 @@
     "subDescription": "Delve into the urgent issue of plastic pollution and explore potential solutions.",
     "author": "Robert Carter",
     "date": "July 18, 2023",
-    "imageUrl": "../assets/environment.jpeg",
-    "href": "../pages/environment.html"
+    "imageUrl": "./assets/environment.jpeg",
+    "href": "./pages/environment.html"
   },
   {
     "id": "12",
@@ -116,7 +116,7 @@
     "subDescription": "Discover innovative teaching techniques leveraging digital tools for enhanced learning.",
     "author": "Megan Turner",
     "date": "June 5, 2023",
-    "imageUrl": "../assets/education.webp",
-    "href": "../pages/education.html"
+    "imageUrl": "./assets/education.webp",
+    "href": "./pages/education.html"
   }
 ]

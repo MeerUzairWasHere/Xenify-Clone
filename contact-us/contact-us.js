@@ -29,7 +29,7 @@ async function generateCat() {
     const catHTML = data
       .map((cat) => {
         return ` <li>
-          <a href="${cat.filelink}">${cat.filename}</a>(${cat.totalfiles})
+          <a href=".${cat.filelink}">${cat.filename}</a>(${cat.totalfiles})
         </li>`;
       })
       .join("");
@@ -68,10 +68,10 @@ async function generateNavlinks(mainNavData) {
                   (subNavLink) => `<li data-title="${
                     subNavLink.title
                   }" class="sub-nav-li" id="${subNavLink.id}">
-                  <a href="${subNavLink.subPagelink}">
+                  <a href=".${subNavLink.subPagelink}">
                     ${
                       subNavLink.imageUrl
-                        ? `<img src="${subNavLink.imageUrl}" class="nav-img" width="150" height="150" alt="Image">`
+                        ? `<img src=".${subNavLink.imageUrl}" class="nav-img" width="150" height="150" alt="Image">`
                         : ""
                     }
                     <h3 class="nav-title">${
@@ -89,9 +89,9 @@ async function generateNavlinks(mainNavData) {
         return `<li class="nav-li ${
           mainNavLink.id == "2" ? "mega-menu" : ""
         }" id="${mainNavLink.id}">
-              <a href="${mainNavLink.pagelink}">
+              <a href=".${mainNavLink.pagelink}">
                 ${
-                  mainNavLink.icon + mainNavLink.pagename + mainNavLink.dropdown
+                  mainNavLink.id == "0" ? `<img src='.${mainNavLink.logo}' height='30' />` : ( mainNavLink.icon + mainNavLink.pagename + mainNavLink.dropdown)
                 }
               </a>
               ${subNavLinks}
@@ -124,8 +124,8 @@ async function generateSideNav() {
     let likedCardPostsHTML = "";
 
     cardPostsHTML = `
-      <a href="${data[randomIndex].href}">
-        <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img">
+      <a href=".${data[randomIndex].href}">
+        <img src=".${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="img">
         <div class="img-post-detail">
           <span class="post-title">${data[randomIndex].title}</span>
           <span class="post-description">${data[randomIndex].description}</span>
@@ -135,8 +135,8 @@ async function generateSideNav() {
       </a>`;
 
     likedCardPostsHTML = `
-      <a href="${data[randomIndex].href}">
-        <img src="${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="">
+      <a href=".${data[randomIndex].href}">
+        <img src=".${data[randomIndex].imageUrl}" class="img" style="border-radius:0;" height="200" alt="">
         <div class="img-post-detail">
           <span class="post-title">${data[randomIndex].title}</span>
           <span class="post-description">${data[randomIndex].description}</span>
@@ -154,10 +154,10 @@ async function generateSideNav() {
     for (let i = 0; i < 12; i++) {
       if (i % 2 == 0) {
         miniCards += `
-          <a href="${data[i].href}">
+          <a href=".${data[i].href}">
             <div class="flex">
               <div class="mini-img">
-                <img src="${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
+                <img src=".${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
               </div>
               <div class="card-post-detail">
                 <span class="post-description">${data[i].description}</span>
@@ -167,10 +167,10 @@ async function generateSideNav() {
           </a>`;
       } else {
         likedMiniCards += `
-          <a href="${data[i].href}">
+          <a href=".${data[i].href}">
             <div class="flex">
               <div class="mini-img">
-                <img src="${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
+                <img src=".${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">
               </div>
               <div class="card-post-detail">
                 <span class="post-description">${data[i].description}</span>
@@ -188,13 +188,13 @@ async function generateSideNav() {
   }
 }
 
-async function generateMobileNav() {
+async function generateMobileNav(data) {
   try {
     let mobileNavHTML = ``;
 
     mobileNavHTML = `
             <a><i class="fa-solid fa-bars fa-xl" id="burger-btn"></i></a>
-            <a href="../index.html"><img src="../assets/xenify-logo.png" width="100" alt="logo"></a>`;
+            <a href=".${data[0].pagelink}"><img src=".${data[0].mobileLogo}" width="100" alt="logo"></a>`;
 
     mobileNav.innerHTML = mobileNavHTML;
 
@@ -211,7 +211,7 @@ async function generateMobileNavlinks(mainNavData) {
     const subNavData = subNavResponse;
     let mobileNavCanvasHTML = ` 
         <li class="mobile-nav-header">
-          <a href="./index.html"><img src="./assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+        <a href=".${mainNavData[0].pagelink}"><img src=".${mainNavData[0].mobileLogo}" width="100" alt="xenify-logo"></a>
           <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
         </li>
         <div class="mobile-nav-lis" id="inner">
@@ -241,7 +241,7 @@ async function generateMobileNavlinks(mainNavData) {
             
             class="hoverUl" >${subNav.subNavItems
               .map(
-                (subNavLink) => `<li  id="${subNavLink.id}"> <a href="${
+                (subNavLink) => `<li  id="${subNavLink.id}"> <a href=".${
                   subNavLink.subPagelink
                 }">
                     
@@ -277,7 +277,7 @@ async function generateMobileNavlinks(mainNavData) {
               }`
         }">
         
-        <a href="${mainNavLink.pagelink}"  class="${
+        <a href=".${mainNavLink.pagelink}"  class="${
           mainNavLink.id == "4"
             ? "nav-header"
             : `${mainNavLink.id == "5" ? "nav-header" : ""}`
@@ -292,7 +292,8 @@ async function generateMobileNavlinks(mainNavData) {
 
     mobileNavCanvasHTML = ` 
         <li class="mobile-nav-header">
-          <a href="./index.html"><img src="../assets/xenify-logo.png" width="100" alt="xenify-logo"></a>
+        <a href=".${mainNavData[0].pagelink}"><img src=".${mainNavData[0].mobileLogo}" width="100" alt="xenify-logo"></a>
+
           <a><i class="fa-solid fa-xmark fa-xl" id="close-btn"></i></a>
         </li>
         <div class="mobile-nav-lis" id="inner">
@@ -317,9 +318,9 @@ async function generateMobileNavlinks(mainNavData) {
 (async () => {
   generateCat();
   generateSideNav();
-  await generateMobileNav();
   const mainNavResponse = await fetchData("../Json/main-nav.json");
   generateNavlinks(mainNavResponse);
+  await generateMobileNav(mainNavResponse);
   await generateMobileNavlinks(mainNavResponse);
   setupEventListeners();
 })();

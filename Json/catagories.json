@@ -2,16 +2,16 @@
   {
     "filename": "Our Services",
     "totalfiles": "4",
-    "filelink": "../our-services/index.html"
+    "filelink": "./our-services/index.html"
   },
   {
     "filename": "Our Works",
     "totalfiles": "3",
-    "filelink": "../our-work/our-work.html"
+    "filelink": "./our-work/our-work.html"
   },
   {
     "filename": "Mega Menu",
     "totalfiles": "5",
-    "filelink": "../megaMenu/megaMenu.html"
+    "filelink": "./megaMenu/megaMenu.html"
   }
 ]
