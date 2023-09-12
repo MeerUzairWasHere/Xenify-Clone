@@ -1,0 +1,22 @@
+[
+  {
+    "filename": "About Us",
+    "filelink": "./service2/about-us.html"
+  },
+  {
+    "filename": "Contact Us",
+    "filelink": "./service2/contact-us.html"
+  },
+  {
+    "filename": "Best Tours",
+    "filelink": "./service2/best-tours.html"
+  },
+  {
+    "filename": "Best Packages",
+    "filelink": "./service2/best-packages.html"
+  },
+  {
+    "filename": "Testimonials",
+    "filelink": "./service2/testimonials.html"
+  }
+]

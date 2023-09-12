@@ -12,7 +12,7 @@
 html {
   background-color: #f6f6f6;
 }
-#logo{
+#logo {
   display: none;
 }
 /* Main container styling */
@@ -46,17 +46,16 @@ html {
   font-family: "Jost", sans-serif;
   font-size: 12px;
 }
-#inner .hoverUl{
+#inner .hoverUl {
   display: none;
 }
 
-.dropdown:hover #our-work-uls{
+.dropdown:hover #our-work-uls {
   display: flex;
 }
-.dropdown:hover #our-service-uls{
+.dropdown:hover #our-service-uls {
   display: flex;
 }
-
 
 /* Styling for navigation links */
 .nav a {
@@ -77,10 +76,10 @@ html {
   height: 100%;
   display: flex;
 }
-#mobile-mega-menu ul{
+#mobile-mega-menu ul {
   display: none;
 }
-#mobile-mega-menu a i{
+#mobile-mega-menu a i {
   display: none;
 }
 /* Styling for navigation sub-menus */
@@ -310,6 +309,18 @@ footer {
 .cat-title {
   font-size: 16px;
   font-family: "Jost", sans-serif;
+}
+.nav-li:nth-child(5) {
+  cursor: default;
+}
+.card-posts li {
+  list-style: none;
+  font-family: "Inter", sans-serif;
+  font-size: .9rem;
+  text-decoration: underline;
+}
+.card-posts li a:hover {
+  color:#ff580c;
 }
 
 @media screen and (max-width: 450px) {

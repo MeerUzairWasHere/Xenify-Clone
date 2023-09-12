@@ -49,23 +49,23 @@
     "subNavItems": [
       {
         "id": 1,
-        "subPagename": "Service 1",
-        "subPagelink": "./our-services/service1/index.html"
+        "subPagename": "Education",
+        "subPagelink": "./service1/index.html"
       },
       {
         "id": 2,
-        "subPagename": "Service 2",
-        "subPagelink": "./our-services/service2/index.html"
+        "subPagename": "Travel",
+        "subPagelink": "./service2/index.html"
       },
       {
         "id": 3,
         "subPagename": "Service 3",
-        "subPagelink": "./our-services/service3/index.html"
+        "subPagelink": "./service3/index.html"
       },
       {
         "id": 4,
         "subPagename": "Service 4",
-        "subPagelink": "./our-services/service4/index.html"
+        "subPagelink": "./service4/index.html"
       }
     ]
   },

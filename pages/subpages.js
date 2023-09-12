@@ -12,6 +12,7 @@ const mobileNav = document.getElementById("mobile-nav");
 const mobileSubNav = document.getElementById("mobile-subnav");
 const mobileSubNavUl = document.getElementById("mobile-subnav-ul");
 const catagories = document.getElementById("catagories");
+const footer = document.getElementById("footer");
 
 async function fetchData(url) {
   try {
@@ -38,7 +39,6 @@ async function generateCat() {
     console.error("Error generating catagories:", error);
   }
 }
-
 
 async function generateNavlinks(mainNavData) {
   try {
@@ -79,7 +79,9 @@ async function generateNavlinks(mainNavData) {
         return `<li class="nav-li ${
           mainNavLink.id == "2" ? "mega-menu" : ""
         }" id="${mainNavLink.id}">
-              <a href=".${mainNavLink.pagelink}">
+              <a ${
+                mainNavLink.id != 4 ? `href='.${mainNavLink.pagelink}'` : ""
+              } >
                 ${
                   mainNavLink.id == "0"
                     ? `<img src='.${mainNavLink.logo}' height='30' />`
@@ -190,7 +192,6 @@ async function generateMobileNav(mainNavData) {
 
 
              <a href=".${mainNavData[0].pagelink}"><img src=".${mainNavData[0].mobileLogo}" width="100" alt="xenify-logo"></a>`;
-            
 
     mobileNav.innerHTML = mobileNavHTML;
 
@@ -274,7 +275,9 @@ async function generateMobileNavlinks(mainNavData) {
               }`
         }">
         
-        <a href=".${mainNavLink.pagelink}"  class="${
+        <a ${
+          mainNavLink.id != 4 ? `href='.${mainNavLink.pagelink}'` : ""
+        }  class="${
           mainNavLink.id == "4"
             ? "nav-header"
             : `${mainNavLink.id == "5" ? "nav-header" : ""}`
@@ -306,10 +309,26 @@ async function generateMobileNavlinks(mainNavData) {
   document.getElementById("close-btn").addEventListener("click", () => {
     mobileSubNav.style.left = "-100%";
   });
-
-  
 }
+async function generateFooter() {
+  try {
+    let footerHTML = `<span class="footer-span">Design by <a href="https://github.com/MeerUzairWasHere" target="_blank">Meer
+    Uzair</a></span>
+<div class="footer-navbar">
+<ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../contact-us/contact-us.html">Contact Us</a></li>
+    <li><a href="../megaMenu/megaMenu.html">Mega Menu</a></li>
+</ul>
 
+
+</div>`;
+
+    footer.innerHTML = footerHTML;
+  } catch (error) {
+    console.error("Error generating footer:", error);
+  }
+}
 // Call the async functions to start fetching and rendering data
 (async () => {
   generateCat();
@@ -318,5 +337,5 @@ async function generateMobileNavlinks(mainNavData) {
   await generateMobileNav(mainNavResponse);
   await generateMobileNavlinks(mainNavResponse);
   generateSideNav();
+  generateFooter();
 })();
-

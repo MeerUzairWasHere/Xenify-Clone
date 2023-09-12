@@ -1,0 +1,22 @@
+[
+  {
+    "filename": "About Us",
+    "filelink": "./service1/about-us.html"
+  },
+  {
+    "filename": "Contact Us",
+    "filelink": "./service1/contact-us.html"
+  },
+  {
+    "filename": "All Courses",
+    "filelink": "./service1/all-courses.html"
+  },
+  {
+    "filename": "Recent Courses",
+    "filelink": "./service1/recent-courses.html"
+  },
+  {
+    "filename": "Trending Courses",
+    "filelink": "./service1/trending-courses.html"
+  }
+]

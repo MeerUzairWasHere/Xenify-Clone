@@ -1,0 +1,28 @@
+[
+    {
+      "id": "1",
+      "title": "Dal-lake 1",
+      "imageUrl": "../service2/images/image (1).jpeg"
+    },
+    {
+      "id": "2",
+      "title": "Dal-lake 2",
+      "imageUrl": "../service2/images/image (2).jpeg"
+    },
+    {
+      "id": "3",
+      "title": "Dal-lake 3",
+      "imageUrl": "../service2/images/image (3).jpeg"
+    },
+    {
+      "id": "4",
+      "title": "Dal-lake 4",
+      "imageUrl": "../service2/images/image (4).jpeg"
+    },
+    {
+      "id": "5",
+      "title": "Dal-lake 1",
+      "imageUrl": "../service2/images/image (5).jpeg"
+    }
+  ]
+  
