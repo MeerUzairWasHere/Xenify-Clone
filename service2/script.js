@@ -131,8 +131,6 @@ async function generateSideNav() {
   }
 }
 
-
-
 async function generateMobileNav(data) {
   try {
     console.log();
@@ -281,13 +279,6 @@ async function generateFooter() {
 }
 
 
-
-
-
-
-
-
-
 async function generateSideNavPackages() {
   try {
     const data = await fetchData("../service2/sidenav-packages.json")
@@ -296,7 +287,7 @@ async function generateSideNavPackages() {
 
     for (let i = 0; i < data.length; i++) {
       packagesHTML += `
-          <a>
+          <a href=".${data[i].filelink}" >
             <div class="flex">
               <div class="mini-img">
                 <img src="${data[i].imageUrl}" style="border-radius:0; object-fit: cover;" height="100" width="150" alt="">

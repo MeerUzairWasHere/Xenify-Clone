@@ -329,6 +329,31 @@ async function generateFooter() {
     console.error("Error generating footer:", error);
   }
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const shareButton = document.getElementById("share-button");
+
+  shareButton.addEventListener("click", function () {
+    shareCurrentPage();
+  });
+
+  function shareCurrentPage() {
+    const shareUrl = window.location.href;
+
+    if (navigator.share) {
+      navigator
+        .share({
+          title: document.title,
+          url: shareUrl,
+        })
+        .catch((error) => console.error("Error sharing:", error));
+    } else {
+      // If the Web Share API is not available, you can provide fallback options here.
+      // For example, open a share dialog for each platform individually as shown in previous examples.
+      console.log("Web Share API is not supported in this browser.");
+    }
+  }
+});
+
 // Call the async functions to start fetching and rendering data
 (async () => {
   generateCat();
@@ -339,3 +364,30 @@ async function generateFooter() {
   generateSideNav();
   generateFooter();
 })();
+setTimeout(() => {
+  modal.innerHTML = ` <div class="popup-card scale-up-center">
+  <p class="cookieHeading">We use cookies.</p>
+  <p class="cookieDescription">We use cookies to ensure that we give you the best experience on our website.
+      <br><a href="#">Read cookies policies</a>.
+  </p>
+
+  <div class="buttonContainer">
+      <button id="acceptBtn" class="acceptButton">Allow</button>
+      <button id="declineBtn" class="declineButton">Decline</button>
+  </div>
+
+</div>`;
+
+  document.getElementById("acceptBtn").addEventListener("click", () => {
+    modal.innerHTML = `<div  class="popup-card scale-up-center">
+    <p class="cookieHeading " style="text-align:center">Thanks for accepting our cookies!</p>
+
+  </div>`;
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 2000);
+  });
+  document.getElementById("declineBtn").addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}, 10000);

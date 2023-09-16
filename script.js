@@ -13,6 +13,7 @@ const mobileSubNav = document.getElementById("mobile-subnav");
 const mobileSubNavUl = document.getElementById("mobile-subnav-ul");
 const catagories = document.getElementById("catagories");
 const footer = document.getElementById("footer");
+const modal = document.getElementById("modal");
 
 async function fetchData(url) {
   try {
@@ -91,7 +92,7 @@ async function generateNavlinks(mainNavData) {
           mainNavLink.id == "2" ? "mega-menu" : ""
         }" id="${mainNavLink.id}">
               <a 
-              ${mainNavLink.id != 4 ? `href='${mainNavLink.pagelink}'`: ""}   
+              ${mainNavLink.id != 4 ? `href='${mainNavLink.pagelink}'` : ""}   
               >
                 ${
                   mainNavLink.id == "0"
@@ -140,6 +141,7 @@ async function renderCards() {
       .join("");
 
     heroDiv.innerHTML = cardHTML;
+    heroDiv.style.backgroundColor = "#ff5b10";
   } catch (error) {
     console.error("Error rendering cards:", error);
   }
@@ -356,7 +358,9 @@ async function generateMobileNavlinks(mainNavData) {
               }`
         }">
         
-        <a ${mainNavLink.id != 4 ? `href='${mainNavLink.pagelink}'`: ""}  class="${
+        <a ${
+          mainNavLink.id != 4 ? `href='${mainNavLink.pagelink}'` : ""
+        }  class="${
           mainNavLink.id == "4"
             ? "nav-header"
             : `${mainNavLink.id == "5" ? "nav-header" : ""}`
@@ -425,3 +429,4 @@ async function generateFooter() {
   setupEventListeners();
   generateFooter();
 })();
+

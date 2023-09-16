@@ -316,12 +316,125 @@ footer {
 .card-posts li {
   list-style: none;
   font-family: "Inter", sans-serif;
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-decoration: underline;
 }
 .card-posts li a:hover {
-  color:#ff580c;
+  color: #ff580c;
 }
+
+.popup-card {
+  width: 400px;
+  z-index: 2;
+  height: 220px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  gap: 13px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 30px 30px auto;
+  overflow: hidden;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.062);
+}
+
+#cookieSvg {
+  width: 50px;
+}
+
+#cookieSvg g path {
+  fill: rgb(97, 81, 81);
+}
+
+.cookieHeading {
+  font-size: 1.2em;
+  font-weight: 800;
+  color: rgb(26, 26, 26);
+}
+
+.cookieDescription {
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(99, 99, 99);
+}
+
+.cookieDescription a {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246);
+}
+
+.cookieDescription a:hover {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.acceptButton {
+  width: 80px;
+  height: 30px;
+  background-color: #ff580c;
+  transition-duration: 0.2s;
+  border: none;
+  color: rgb(241, 241, 241);
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: all 0.6s ease;
+}
+
+.declineButton {
+  width: 80px;
+  height: 30px;
+  background-color: #dadada;
+  transition-duration: 0.2s;
+  color: rgb(46, 46, 46);
+  border: none;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: all 0.6s ease;
+}
+
+.declineButton:hover {
+  background-color: #ebebeb;
+  transition-duration: 0.2s;
+}
+
+.acceptButton:hover {
+  transition-duration: 0.2s;
+  color: black;
+}
+
+.slide-in-br {
+	-webkit-animation: slide-in-br 1s ease-out both;
+	        animation: slide-in-br 1s ease-out both;
+}
+
+@keyframes slide-in-br {
+  0% {
+    -webkit-transform: translateY(1000px) translateX(1000px);
+            transform: translateY(1000px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) translateX(0);
+            transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+}
+
 
 @media screen and (max-width: 450px) {
   #container {

@@ -90,7 +90,9 @@ async function generateNavlinks(mainNavData) {
         return `<li class="nav-li ${
           mainNavLink.id == "2" ? "mega-menu" : ""
         }" id="${mainNavLink.id}">
-              <a ${mainNavLink.id != 4 ? `href='.${mainNavLink.pagelink}'` : ""}   >
+              <a ${
+                mainNavLink.id != 4 ? `href='.${mainNavLink.pagelink}'` : ""
+              }   >
                 ${
                   mainNavLink.id == "0"
                     ? `<img src='.${mainNavLink.logo}' height='30' />`
@@ -281,7 +283,9 @@ async function generateMobileNavlinks(mainNavData) {
               }`
         }">
         
-        <a ${mainNavLink.id != 4 ? `href='.${mainNavLink.pagelink}'`: ""}   class="${
+        <a ${
+          mainNavLink.id != 4 ? `href='.${mainNavLink.pagelink}'` : ""
+        }   class="${
           mainNavLink.id == "4"
             ? "nav-header"
             : `${mainNavLink.id == "5" ? "nav-header" : ""}`
@@ -345,3 +349,4 @@ async function generateFooter() {
   setupEventListeners();
   generateFooter();
 })();
+
