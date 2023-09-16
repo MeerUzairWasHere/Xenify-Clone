@@ -534,6 +534,6 @@ footer {
   .popup-card {
     width: 350px;
     height: 230px;
-    margin: auto;
+    margin-top: auto;
   }
 }
