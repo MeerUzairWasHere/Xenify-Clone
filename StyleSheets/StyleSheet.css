@@ -418,23 +418,22 @@ footer {
 }
 
 .slide-in-br {
-	-webkit-animation: slide-in-br 1s ease-out both;
-	        animation: slide-in-br 1s ease-out both;
+  -webkit-animation: slide-in-br 1s ease-out both;
+  animation: slide-in-br 1s ease-out both;
 }
 
 @keyframes slide-in-br {
   0% {
     -webkit-transform: translateY(1000px) translateX(1000px);
-            transform: translateY(1000px) translateX(1000px);
+    transform: translateY(1000px) translateX(1000px);
     opacity: 0;
   }
   100% {
     -webkit-transform: translateY(0) translateX(0);
-            transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0);
     opacity: 1;
   }
 }
-
 
 @media screen and (max-width: 450px) {
   #container {
@@ -531,5 +530,10 @@ footer {
     margin: 30px 20px 0;
     height: 90px;
     justify-content: space-between;
+  }
+  .popup-card {
+    width: 350px;
+    height: 230px;
+    margin: auto;
   }
 }
