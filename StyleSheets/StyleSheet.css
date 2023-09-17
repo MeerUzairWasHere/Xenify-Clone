@@ -338,9 +338,9 @@ footer {
   position: fixed;
   left: 0;
   right: 0;
-  top: 0;
+  top: 200px;
   bottom: 0;
-  margin: auto 30px 30px auto;
+  margin: auto;
   overflow: hidden;
   box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.062);
 }
@@ -417,21 +417,19 @@ footer {
   color: black;
 }
 
-.slide-in-br {
-  -webkit-animation: slide-in-br 1s ease-out both;
-  animation: slide-in-br 1s ease-out both;
+.slide-top {
+  -webkit-animation: slide-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@keyframes slide-in-br {
+@keyframes slide-top {
   0% {
-    -webkit-transform: translateY(1000px) translateX(1000px);
-    transform: translateY(1000px) translateX(1000px);
-    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
   100% {
-    -webkit-transform: translateY(0) translateX(0);
-    transform: translateY(0) translateX(0);
-    opacity: 1;
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
   }
 }
 
@@ -534,8 +532,6 @@ footer {
   .popup-card {
     width: 350px;
     height: 230px;
-    margin-top: auto;
+    top: 500px;
   }
-
-  
 }
